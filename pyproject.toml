@@ -5,7 +5,7 @@ version = "0.4.4-rc.0"
 description = "Rotation Detection Toolbox and Benchmark"
 readme = "README.md"
 authors = [
-    { name = "MMRotate Authors"},  
+    { name = "MMRotate Authors"},
     { name = "VBTI Software Team", email = "oss@vbti.nl"}
 ]
 license = {text = "Apache-2.0"}
@@ -111,7 +111,7 @@ known_standard_library = ["setuptools"]
 known_first_party = ["mmrotate"]
 known_third_party = ["PIL", "cv2", "e2cnn", "matplotlib", "mmcv", "mmdet", "numpy", "pytest", "pytorch_sphinx_theme", "terminaltables", "torch", "ts", "yaml"]
 no_lines_before = ["STDLIB", "LOCALFOLDER"]
-default_section = "THIRDPARTY"
+default_section = "THIRDPARTY"  # codespell:ignore
 
 [tool.yapf]
 based_on_style = "pep8"
@@ -120,8 +120,8 @@ split_before_expression_after_opening_paren = true
 
 [tool.codespell]
 skip = "*.ipynb"
-quiet_level = 3
-ignore_words_list = ["DOTA", "dota", "warmup"]
+quiet-level = 3
+ignore-words-list = "DOTA,dota,warmup"
 
 # Note: install_requires and extras_require are still dynamically loaded in setup.py
 # due to custom logic and requirements file parsing.

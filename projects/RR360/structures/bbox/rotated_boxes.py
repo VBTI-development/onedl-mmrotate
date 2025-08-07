@@ -1,13 +1,12 @@
-"""copy from /mmrotate/structures/bbox/rotated_boxes.py and redefine 'r360'."""
-import math
-from typing import Optional, Tuple, TypeVar, Union
-
+"""Copy from /mmrotate/structures/bbox/rotated_boxes.py and redefine 'r360'."""
 import cv2
+import math
 import numpy as np
 import torch
 from mmdet.structures.bbox import register_box, register_box_converter
 from mmdet.structures.mask import BitmapMasks, PolygonMasks
 from torch import Tensor
+from typing import Optional, Tuple, TypeVar, Union
 
 from mmrotate.structures.bbox import QuadriBoxes
 from mmrotate.structures.bbox import RotatedBoxes as mmrotate_RotatedBoxes
@@ -196,7 +195,7 @@ class RotatedBoxes(mmrotate_RotatedBoxes):
 
 @register_box_converter(RotatedBoxes, QuadriBoxes, force=True)
 def rbox2qbox(boxes: Tensor) -> Tensor:
-    """copy from mmrotate/structures/bbox/box_converters.py Convert rotated
+    """Copy from mmrotate/structures/bbox/box_converters.py Convert rotated
     boxes to quadrilateral boxes.
 
     Args:

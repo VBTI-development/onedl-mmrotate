@@ -1,6 +1,4 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import List, Optional, Sequence, Union
-
 import mmcv
 import numpy as np
 import torch
@@ -8,6 +6,7 @@ from mmcv.ops import RoIPool
 from mmcv.transforms import Compose
 from mmdet.structures import DetDataSample, SampleList
 from torch import nn
+from typing import List, Optional, Sequence, Union
 
 from mmrotate.utils import (get_multiscale_patch, get_test_pipeline_cfg,
                             merge_results_by_nms, slide_window)
@@ -24,7 +23,7 @@ def inference_detector_by_patches(
         nms_cfg: dict,
         test_pipeline: Optional[Compose] = None,
         bs: int = 1) -> Union[DetDataSample, SampleList]:
-    """inference patches with the detector.
+    """Inference patches with the detector.
 
     Split huge image(s) into patches and inference them with the detector.
     Finally, merge patch results on one huge image by nms.

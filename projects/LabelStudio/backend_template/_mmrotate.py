@@ -1,18 +1,17 @@
 # Copyright (c) OpenMMLab. All rights reserved.
+import boto3
 import io
 import json
 import logging
-import os
-from urllib.parse import urlparse
-
-import boto3
 import numpy as np
+import os
 from botocore.exceptions import ClientError
 from label_studio_ml.model import LabelStudioMLBase
 from label_studio_ml.utils import (DATA_UNDEFINED_NAME, get_image_size,
                                    get_single_tag_keys)
 from label_studio_tools.core.utils.io import get_data_dir
 from mmdet.apis import inference_detector, init_detector
+from urllib.parse import urlparse
 
 from mmrotate.structures.bbox import RotatedBoxes
 

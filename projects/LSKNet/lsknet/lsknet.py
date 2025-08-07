@@ -1,9 +1,8 @@
 import math
-import warnings
-from functools import partial
-
 import torch
 import torch.nn as nn
+import warnings
+from functools import partial
 from mmcv.cnn import build_norm_layer
 from mmcv.cnn.bricks import DropPath
 from mmengine.model import (BaseModule, constant_init, normal_init,
@@ -111,12 +110,12 @@ class Attention(BaseModule):
         self.proj_2 = nn.Conv2d(d_model, d_model, 1)
 
     def forward(self, x):
-        shorcut = x.clone()
+        shortcut = x.clone()
         x = self.proj_1(x)
         x = self.activation(x)
         x = self.spatial_gating_unit(x)
         x = self.proj_2(x)
-        x = x + shorcut
+        x = x + shortcut
         return x
 
 

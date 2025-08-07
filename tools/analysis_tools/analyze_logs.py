@@ -1,10 +1,9 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import argparse
 import json
-from collections import defaultdict
-
 import matplotlib.pyplot as plt
 import numpy as np
+from collections import defaultdict
 
 try:
     import seaborn as sns
@@ -13,7 +12,7 @@ except ImportError:
 
 
 def cal_train_time(log_dicts, args):
-    """calculate the training time."""
+    """Calculate the training time."""
     for i, log_dict in enumerate(log_dicts):
         print(f'{"-" * 5}Analyze train time of {args.json_logs[i]}{"-" * 5}')
         all_times = []

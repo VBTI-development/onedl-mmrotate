@@ -1,6 +1,4 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import List, Optional, Tuple
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,6 +13,7 @@ from mmengine.model import BaseModule
 from mmengine.structures import InstanceData
 from torch import Tensor
 from torch.nn.modules.utils import _pair
+from typing import List, Optional, Tuple
 
 from mmrotate.registry import MODELS, TASK_UTILS
 from mmrotate.structures.bbox import QuadriBoxes, hbox2qbox
@@ -170,19 +169,19 @@ class GVBBoxHead(BaseModule):
     # TODO: Create a SeasawBBoxHead to simplified logic in BBoxHead
     @property
     def custom_cls_channels(self) -> bool:
-        """get custom_cls_channels from loss_cls."""
+        """Get custom_cls_channels from loss_cls."""
         return getattr(self.loss_cls, 'custom_cls_channels', False)
 
     # TODO: Create a SeasawBBoxHead to simplified logic in BBoxHead
     @property
     def custom_activation(self) -> bool:
-        """get custom_activation from loss_cls."""
+        """Get custom_activation from loss_cls."""
         return getattr(self.loss_cls, 'custom_activation', False)
 
     # TODO: Create a SeasawBBoxHead to simplified logic in BBoxHead
     @property
     def custom_accuracy(self) -> bool:
-        """get custom_accuracy from loss_cls."""
+        """Get custom_accuracy from loss_cls."""
         return getattr(self.loss_cls, 'custom_accuracy', False)
 
     def forward(self, x: Tuple[Tensor]) -> tuple:

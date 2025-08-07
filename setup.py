@@ -1,9 +1,11 @@
+from setuptools import setup
+
 import os
 import os.path as osp
+import platform
 import shutil
 import sys
 import warnings
-from setuptools import find_packages, setup
 
 
 def add_mim_extension():

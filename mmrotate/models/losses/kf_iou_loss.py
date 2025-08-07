@@ -142,8 +142,9 @@ class KFLoss(nn.Module):
         assert reduction_override in (None, 'none', 'mean', 'sum')
         reduction = (
             reduction_override if reduction_override else self.reduction)
-        if (weight is not None) and (not torch.any(weight > 0)) and (
-                reduction != 'none'):
+        if (weight
+                is not None) and (not torch.any(weight > 0)) and (reduction
+                                                                  != 'none'):
             return (pred * weight).sum()
         if weight is not None and weight.dim() > 1:
             assert weight.shape == pred.shape

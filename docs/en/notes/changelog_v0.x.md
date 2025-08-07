@@ -213,7 +213,7 @@ Thanks @nijkah @GamblerZSY @liuyanyi @yangxue0827 @jbwang1997 @zytx121 @ZwwWayne
 
 - Remove in-place operations in rbbox_overlaps (#155)
 - Fix bug in docstring. (#137)
-- Fix bug in HRSCDataset with `clasesswise=ture` (#175)
+- Fix bug in HRSCDataset with `clasesswise=true` (#175)
 
 ### Improvements
 

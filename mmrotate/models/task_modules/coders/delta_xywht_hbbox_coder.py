@@ -1,11 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import Optional, Sequence, Union
-
 import numpy as np
 import torch
 from mmdet.models.task_modules.coders.base_bbox_coder import BaseBBoxCoder
 from mmdet.structures.bbox import HorizontalBoxes, get_box_tensor
 from torch import Tensor
+from typing import Optional, Sequence, Union
 
 from mmrotate.registry import TASK_UTILS
 from mmrotate.structures.bbox import RotatedBoxes
@@ -206,8 +205,8 @@ def delta2bbox(rois: Tensor,
                angle_version: str = 'oc',
                norm_factor: Optional[float] = None,
                edge_swap: bool = False) -> Tensor:
-    """Apply deltas to shift/scale base boxes. Typically the rois are anchor
-    or proposed bounding boxes and the deltas are network outputs used to
+    """Apply deltas to shift/scale base boxes. Typically the rois are anchor or
+    proposed bounding boxes and the deltas are network outputs used to
     shift/scale those boxes. This is the inverse function of
     :func:`bbox2delta`.
 

@@ -1,8 +1,6 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import copy
 import math
-from typing import Tuple, Union
-
 import torch
 from mmdet.models.detectors.single_stage import SingleStageDetector
 from mmdet.models.utils import unpack_gt_instances
@@ -12,6 +10,7 @@ from mmdet.utils import ConfigType, InstanceList, OptConfigType, OptMultiConfig
 from torch import Tensor
 from torch.nn.functional import grid_sample
 from torchvision import transforms
+from typing import Tuple, Union
 
 from mmrotate.registry import MODELS
 from mmrotate.structures.bbox import RotatedBoxes

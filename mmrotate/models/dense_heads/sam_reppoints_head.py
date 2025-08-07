@@ -1,11 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import Dict, List, Tuple
-
 import torch
 from mmdet.models.utils import images_to_levels, multi_apply, unmap
 from mmdet.utils import InstanceList, OptInstanceList
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import Dict, List, Tuple
 
 from mmrotate.models.dense_heads.rotated_reppoints_head import \
     RotatedRepPointsHead
@@ -321,8 +320,8 @@ class SAMRepPointsHead(RotatedRepPointsHead):
         pts_pred_init = pts_pred_init.reshape(-1, 2 * self.num_points)
         bbox_weights_init = bbox_weights_init.reshape(-1)
         sam_weights_init = sam_weights_init.reshape(-1)
-        pos_ind_init = (bbox_weights_init > 0).nonzero(
-            as_tuple=False).reshape(-1)
+        pos_ind_init = (bbox_weights_init
+                        > 0).nonzero(as_tuple=False).reshape(-1)
         pos_bbox_gt_init = bbox_gt_init[pos_ind_init]
         pos_pts_pred_init = pts_pred_init[pos_ind_init]
         pos_bbox_weights_init = bbox_weights_init[pos_ind_init]
@@ -338,8 +337,8 @@ class SAMRepPointsHead(RotatedRepPointsHead):
         pts_pred_refine = pts_pred_refine.reshape(-1, 2 * self.num_points)
         bbox_weights_refine = bbox_weights_refine.reshape(-1)
         sam_weights_refine = sam_weights_refine.reshape(-1)
-        pos_ind_refine = (bbox_weights_refine > 0).nonzero(
-            as_tuple=False).reshape(-1)
+        pos_ind_refine = (bbox_weights_refine
+                          > 0).nonzero(as_tuple=False).reshape(-1)
         pos_bbox_gt_refine = bbox_gt_refine[pos_ind_refine]
         pos_pts_pred_refine = pts_pred_refine[pos_ind_refine]
         pos_bbox_weights_refine = bbox_weights_refine[pos_ind_refine]

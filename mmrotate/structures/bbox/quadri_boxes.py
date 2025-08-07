@@ -1,13 +1,12 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import warnings
-from typing import Tuple, TypeVar, Union
-
 import cv2
 import numpy as np
 import torch
+import warnings
 from mmdet.structures.bbox import BaseBoxes, register_box
 from mmdet.structures.mask import BitmapMasks, PolygonMasks
 from torch import BoolTensor, Tensor
+from typing import Tuple, TypeVar, Union
 
 T = TypeVar('T')
 DeviceType = Union[str, torch.device]
@@ -141,7 +140,7 @@ class QuadriBoxes(BaseBoxes):
             img_shape (Tuple[int, int]): A tuple of image height and width.
 
         Returns:
-            T: Cliped boxes with the same shape as the original boxes.
+            T: Clipped boxes with the same shape as the original boxes.
         """
         warnings.warn('The `clip` function does nothing in `QuadriBoxes`.')
 

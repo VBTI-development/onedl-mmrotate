@@ -13,13 +13,13 @@ Compatible MMCV, MMDetection and MMRotate versions are shown as below. Please in
 | dev-1.x  | 0.6.0 \<= mmengine \< 1.0.0 | 2.0.0rc4 \<= mmcv \< 2.1.0 | 3.0.0rc6 \<= mmdet \< 3.1.0 |
 | 1.0.0rc1 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc5 \<= mmdet \< 3.1.0 |
 | 1.0.0rc0 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc2 \<= mmdet \< 3.1.0 |
-|       main       | mmcv-full>=1.5.0, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.2       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.1       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.0       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.2.0       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
-|      0.1.1       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
-|      0.1.0       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
+| main     | mmcv-full>=1.5.0, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.2    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.1    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.0    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.2.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
+| 0.1.1    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
+| 0.1.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
 
 - "No module named 'mmcv.ops'"; "No module named 'mmcv.\_ext'".
 
