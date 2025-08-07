@@ -66,10 +66,6 @@ tests = [
     "xdoctest>=0.10.0",
     "e2cnn"
 ]
-build = [
-    "cython",
-    "numpy"
-]
 docs = [
     "docutils==0.16.0",
     "markdown>=3.4.0",
