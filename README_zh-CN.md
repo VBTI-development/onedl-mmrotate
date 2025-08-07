@@ -26,10 +26,10 @@
 [![open issues](https://isitmaintained.com/badge/open/open-mmlab/mmrotate.svg)](https://github.com/open-mmlab/mmrotate/issues)
 [![issue resolution](https://isitmaintained.com/badge/resolution/open-mmlab/mmrotate.svg)](https://github.com/open-mmlab/mmrotate/issues)
 
-[📘使用文档](https://mmrotate.readthedocs.io/zh_CN/stable/) |
-[🛠️安装教程](https://mmrotate.readthedocs.io/zh_CN/stable/get_started.html) |
-[👀模型库](https://mmrotate.readthedocs.io/zh_CN/stable/model_zoo.html) |
-[🆕更新日志](https://mmrotate.readthedocs.io/en/stable/changelog.html) |
+[📘使用文档](https://mmrotate.readthedocs.io/zh_CN/1.x/) |
+[🛠️安装教程](https://mmrotate.readthedocs.io/zh_CN/1.x/get_started.html) |
+[👀模型库](https://mmrotate.readthedocs.io/zh_CN/1.x/model_zoo.html) |
+[🆕更新日志](https://mmrotate.readthedocs.io/en/1.x/notes/changelog.html) |
 [🚀进行中的项目](https://github.com/open-mmlab/mmrotate/projects) |
 [🤔报告问题](https://github.com/open-mmlab/mmrotate/issues/new/choose)
 
@@ -39,6 +39,26 @@
 
 [English](/README.md) | 简体中文
 
+</div>
+
+<div align="center">
+  <a href="https://openmmlab.medium.com/" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219255827-67c1a27f-f8c5-46a9-811d-5e57448c61d1.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://discord.com/channels/1037617289144569886/1046608014234370059" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218347213-c080267f-cbb6-443e-8532-8e1ed9a58ea9.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://twitter.com/OpenMMLab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218346637-d30c8a0f-3eba-4699-8131-512fb06d46db.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://www.youtube.com/openmmlab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218346691-ceb2116a-465a-40af-8424-9f30d2348ca9.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://space.bilibili.com/1293512903" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219026751-d7d14cce-a7c9-4e82-9942-8375fca65b99.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://www.zhihu.com/people/openmmlab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219026120-ba71e48b-6e94-4bd4-b4e9-b7d175b5e362.png" width="3%" alt="" /></a>
 </div>
 
 ## 介绍
@@ -86,40 +106,38 @@ https://user-images.githubusercontent.com/10410257/154433305-416d129b-60c8-44c7-
 <img src="https://user-images.githubusercontent.com/12907710/208044554-1e8de6b5-48d8-44e4-a7b5-75076c7ebb71.png"/>
 </div>
 
-最新的 **0.3.4** 版本已经在 2023.02.01 发布:
+最新的 **v1.0.0rc1** 版本已经在 2022.12.30 发布:
 
-- 修复与 numpy、scikit-learn 和 e2cnn 的兼容性
-- 旋转变换支持 empty patch
-- 使用 iof 进行 RRandomCrop 验证
-
-如果想了解更多版本更新细节和历史信息，请阅读[更新日志](docs/en/changelog.md)。
+- 支持了 [RTMDet](configs/rotated_rtmdet) 的旋转目标检测模型。RTMDet 的技术报告发布在了 [arxiv](https://arxiv.org/abs/2212.07784) 上。
+- 支持了 [H2RBox](configs/h2rbox) 模型。H2RBox 的技术报告发布在了 [arxiv](https://arxiv.org/abs/2210.06742) 上。
 
 ## 安装
 
-MMRotate 依赖 [PyTorch](https://pytorch.org/), [MMCV](https://github.com/open-mmlab/mmcv) 和 [MMDetection](https://github.com/open-mmlab/mmdetection)，以下是安装的简要步骤。
-更详细的安装指南请参考 [安装文档](https://mmrotate.readthedocs.io/zh_CN/latest/install.html)。
-
-```shell
-conda create -n open-mmlab python=3.7 pytorch==1.7.0 cudatoolkit=10.1 torchvision -c pytorch -y
-conda activate open-mmlab
-pip install openmim
-mim install mmcv-full
-mim install mmdet
-git clone https://github.com/open-mmlab/mmrotate.git
-cd mmrotate
-pip install -r requirements/build.txt
-pip install -v -e .
-```
+请参考[快速入门文档](https://mmrotate.readthedocs.io/zh_CN/1.x/get_started.html)进行安装。
 
 ## 教程
 
-请参考[快速入门文档](docs/zh_cn/get_started.md)学习 MMRotate 的基本使用。
-我们提供了 [colab 教程](demo/MMRotate_Tutorial.ipynb)，也为新手提供了完整的运行教程，其他教程如下
+请阅读[概述](https://mmrotate.readthedocs.io/zh_CN/1.x/get_started.html)对 MMDetection 进行初步的了解。
 
-- [学习基础知识](docs/zh_cn/intro.md)
-- [配置文件](docs/zh_cn/tutorials/customize_config.md)
-- [添加数据集](docs/zh_cn/tutorials/customize_dataset.md)
-- [添加新模型](docs/zh_cn/tutorials/customize_models.md)。
+为了帮助用户更进一步了解 MMDetection，我们准备了用户指南和进阶指南，请阅读我们的[文档](https://mmrotate.readthedocs.io/zh_CN/1.x/)：
+
+- 用户指南
+  - [训练 & 测试](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/index.html#train-test)
+    - [学习配置文件](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/config.html)
+    - [使用已有模型在标准数据集上进行推理](https://mmrotate.readthedocs.io/en/1.x/user_guides/inference.html)
+    - [数据集准备](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/dataset_prepare.html)
+    - [测试现有模型](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/train_test.html#test)
+    - [在标准数据集上训练预定义的模型](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/train_test.html#train)
+    - [提交测试结果](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/test_results_submission.html)
+  - [实用工具](https://mmrotate.readthedocs.io/zh_CN/1.x/user_guides/index.html#useful-tools)
+- 进阶指南
+  - [基础概念](https://mmrotate.readthedocs.io/zh_CN/1.x/advanced_guides/index.html#basic-concepts)
+  - [组件定制](https://mmrotate.readthedocs.io/zh_CN/1.x/advanced_guides/index.html#component-customization)
+  - [How to](https://mmrotate.readthedocs.io/zh_CN/1.x/advanced_guides/index.html#how-to)
+
+我们提供了旋转检测的 colab 教程 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](demo/MMRotate_Tutorial.ipynb)。
+
+若需要将0.x版本的代码迁移至新版，请参考[迁移文档](https://mmrotate.readthedocs.io/zh_CN/1.x/migration.html)。
 
 ## 模型库
 
@@ -146,8 +164,11 @@ pip install -v -e .
 - [x] [KLD](configs/kld/README.md) (NeurIPS'2021)
 - [x] [SASM](configs/sasm_reppoints/README.md) (AAAI'2022)
 - [x] [Oriented RepPoints](configs/oriented_reppoints/README.md) (CVPR'2022)
-- [x] [KFIoU](configs/kfiou/README.md) (arXiv)
-- [x] [G-Rep](configs/g_reppoints/README.md) (stay tuned)
+- [x] [KFIoU](configs/kfiou/README.md) (ICLR'2023)
+- [x] [H2RBox](configs/h2rbox/README.md) (ICLR'2023)
+- [x] [PSC](configs/psc/README.md) (CVPR'2023)
+- [x] [RTMDet](configs/rotated_rtmdet/README.md) (arXiv)
+- [x] [H2RBox-v2](configs/h2rbox_v2/README.md) (arXiv)
 
 </details>
 
@@ -157,7 +178,7 @@ pip install -v -e .
 
 ## 常见问题
 
-请参考 [FAQ](docs/en/faq.md) 了解其他用户的常见问题。
+请参考 [FAQ](docs/en/notes/faq.md) 了解其他用户的常见问题。
 
 ## 参与贡献
 
@@ -165,8 +186,7 @@ pip install -v -e .
 
 ## 致谢
 
-MMRotate 是一款由不同学校和公司共同贡献的开源项目。我们感谢所有为项目提供算法复现和新功能支持的贡献者，以及提供宝贵反馈的用户。
-我们希望该工具箱和基准测试可以为社区提供灵活的代码工具，供用户复现现有算法并开发自己的新模型，从而不断为开源社区提供贡献。
+MMRotate 是一款由不同学校和公司共同贡献的开源项目。我们感谢所有为项目提供算法复现和新功能支持的贡献者，以及提供宝贵反馈的用户。我们感谢 [SJTU 学生创新中心](https://www.si.sjtu.edu.cn/)在项目之初提供的大量计算资源。我们希望该工具箱和基准测试可以为社区提供灵活的代码工具，供用户复现现有算法并开发自己的新模型，从而不断为开源社区提供贡献。
 
 ## 引用
 
@@ -179,6 +199,8 @@ MMRotate 是一款由不同学校和公司共同贡献的开源项目。我们�
              Hou, Liping and Jiang, Xue and Liu, Xingzhao and Yan, Junchi and Lyu, Chengqi and
              Zhang, Wenwei and Chen, Kai},
   booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  pages = {7331–7334},
+  numpages = {4},
   year={2022}
 }
 ```
@@ -189,12 +211,14 @@ MMRotate 是一款由不同学校和公司共同贡献的开源项目。我们�
 
 ## OpenMMLab的其他项目
 
+- [MMEngine](https://github.com/open-mmlab/mmengine): OpenMMLab 深度学习模型训练基础库
 - [MMCV](https://github.com/open-mmlab/mmcv): OpenMMLab 计算机视觉基础库
-- [MIM](https://github.com/open-mmlab/mim): MIM 是 OpenMMlab 项目、算法、模型的统一入口
-- [MMClassification](https://github.com/open-mmlab/mmclassification): OpenMMLab 图像分类工具箱
+- [MMPreTrain](https://github.com/open-mmlab/mmpretrain): OpenMMLab 深度学习预训练工具箱
+- [MMagic](https://github.com/open-mmlab/mmagic): OpenMMLab 新一代人工智能内容生成（AIGC）工具箱
 - [MMDetection](https://github.com/open-mmlab/mmdetection): OpenMMLab 目标检测工具箱
 - [MMDetection3D](https://github.com/open-mmlab/mmdetection3d): OpenMMLab 新一代通用 3D 目标检测平台
 - [MMRotate](https://github.com/open-mmlab/mmrotate): OpenMMLab 旋转框检测工具箱与测试基准
+- [MMYOLO](https://github.com/open-mmlab/mmyolo): OpenMMLab YOLO 系列工具箱与测试基准
 - [MMSegmentation](https://github.com/open-mmlab/mmsegmentation): OpenMMLab 语义分割工具箱
 - [MMOCR](https://github.com/open-mmlab/mmocr): OpenMMLab 全流程文字检测识别理解工具包
 - [MMPose](https://github.com/open-mmlab/mmpose): OpenMMLab 姿态估计工具箱
@@ -208,6 +232,9 @@ MMRotate 是一款由不同学校和公司共同贡献的开源项目。我们�
 - [MMEditing](https://github.com/open-mmlab/mmediting): OpenMMLab 图像视频编辑工具箱
 - [MMGeneration](https://github.com/open-mmlab/mmgeneration): OpenMMLab 图片视频生成模型工具箱
 - [MMDeploy](https://github.com/open-mmlab/mmdeploy): OpenMMLab 模型部署框架
+- [MIM](https://github.com/open-mmlab/mim): OpenMMlab 项目、算法、模型的统一入口
+- [MMEval](https://github.com/open-mmlab/mmeval): 统一开放的跨框架算法评测库
+- [Playground](https://github.com/open-mmlab/playground): 收集和展示 OpenMMLab 相关的前沿、有趣的社区项目
 
 ## 欢迎加入 OpenMMLab 社区
 

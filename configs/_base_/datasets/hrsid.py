@@ -1,47 +1,82 @@
 # dataset settings
-dataset_type = 'SARDataset'
-data_root = 'data/hrsid/'
-img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+dataset_type = 'mmdet.CocoDataset'
+data_root = 'data/HRSID_JPG/'
+backend_args = None
+
 train_pipeline = [
-    dict(type='LoadImageFromFile'),
-    dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='RResize', img_scale=(800, 800)),
-    dict(type='RRandomFlip', flip_ratio=0.5),
-    dict(type='Normalize', **img_norm_cfg),
-    dict(type='Pad', size_divisor=32),
-    dict(type='DefaultFormatBundle'),
-    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+    dict(type='mmdet.LoadImageFromFile', backend_args=backend_args),
+    dict(
+        type='mmdet.LoadAnnotations',
+        with_bbox=True,
+        with_mask=True,
+        poly2mask=False),
+    dict(type='ConvertMask2BoxType', box_type='rbox'),
+    dict(type='mmdet.Resize', scale=(800, 800), keep_ratio=True),
+    dict(type='mmdet.FilterAnnotations', min_gt_bbox_wh=(1e-2, 1e-2)),
+    dict(
+        type='mmdet.RandomFlip',
+        prob=0.75,
+        direction=['horizontal', 'vertical', 'diagonal']),
+    dict(type='mmdet.PackDetInputs')
+]
+val_pipeline = [
+    dict(type='mmdet.LoadImageFromFile', backend_args=backend_args),
+    dict(type='mmdet.Resize', scale=(800, 800), keep_ratio=True),
+    # avoid bboxes being resized
+    dict(
+        type='mmdet.LoadAnnotations',
+        with_bbox=True,
+        with_mask=True,
+        poly2mask=False),
+    dict(type='ConvertMask2BoxType', box_type='qbox'),
+    dict(
+        type='mmdet.PackDetInputs',
+        meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape',
+                   'scale_factor', 'instances'))
 ]
 test_pipeline = [
-    dict(type='LoadImageFromFile'),
+    dict(type='mmdet.LoadImageFromFile', backend_args=backend_args),
+    dict(type='mmdet.Resize', scale=(800, 800), keep_ratio=True),
     dict(
-        type='MultiScaleFlipAug',
-        img_scale=(800, 800),
-        flip=False,
-        transforms=[
-            dict(type='RResize'),
-            dict(type='Normalize', **img_norm_cfg),
-            dict(type='Pad', size_divisor=32),
-            dict(type='DefaultFormatBundle'),
-            dict(type='Collect', keys=['img'])
-        ])
+        type='mmdet.PackDetInputs',
+        meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape',
+                   'scale_factor'))
 ]
-data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
-    train=dict(
+
+metainfo = dict(classes=('ship', ))
+
+train_dataloader = dict(
+    batch_size=2,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(type='DefaultSampler', shuffle=True),
+    batch_sampler=None,
+    dataset=dict(
         type=dataset_type,
-        ann_file=data_root + 'trainsplit/labelTxt/',
-        img_prefix=data_root + 'trainsplit/images/',
-        pipeline=train_pipeline),
-    val=dict(
+        metainfo=metainfo,
+        data_root=data_root,
+        ann_file='annotations/train2017.json',
+        data_prefix=dict(img='JPEGImages/'),
+        filter_cfg=dict(filter_empty_gt=True),
+        pipeline=train_pipeline,
+        backend_args=backend_args))
+val_dataloader = dict(
+    batch_size=1,
+    num_workers=2,
+    persistent_workers=True,
+    drop_last=False,
+    sampler=dict(type='DefaultSampler', shuffle=False),
+    dataset=dict(
         type=dataset_type,
-        ann_file=data_root + 'testsplit/inshore/labelTxt/',
-        img_prefix=data_root + 'testsplit/inshore/images/',
-        pipeline=test_pipeline),
-    test=dict(
-        type=dataset_type,
-        ann_file=data_root + 'testsplit/offshore/labelTxt/',
-        img_prefix=data_root + 'testsplit/offshore/images/',
-        pipeline=test_pipeline))
+        metainfo=metainfo,
+        data_root=data_root,
+        ann_file='annotations/test2017.json',
+        data_prefix=dict(img='JPEGImages/'),
+        test_mode=True,
+        pipeline=val_pipeline,
+        backend_args=backend_args))
+test_dataloader = val_dataloader
+
+val_evaluator = dict(type='RotatedCocoMetric', metric='bbox')
+
+test_evaluator = val_evaluator

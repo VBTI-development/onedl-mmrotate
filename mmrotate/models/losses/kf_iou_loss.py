@@ -3,7 +3,7 @@ import torch
 from mmdet.models.losses.utils import weighted_loss
 from torch import nn
 
-from ..builder import ROTATED_LOSSES
+from mmrotate.registry import MODELS
 
 
 def xy_wh_r_2_xy_sigma(xywhr):
@@ -69,7 +69,7 @@ def kfiou_loss(pred,
     Vb_t = 4 * Sigma_t.det().sqrt()
     K = Sigma_p.bmm((Sigma_p + Sigma_t).inverse())
     Sigma = Sigma_p - K.bmm(Sigma_p)
-    Vb = 4 * Sigma.det().sqrt()
+    Vb = 4 * Sigma.det().clamp(eps).sqrt()
     Vb = torch.where(torch.isnan(Vb), torch.full_like(Vb, 0), Vb)
     KFIoU = Vb / (Vb_p + Vb_t - Vb + eps)
 
@@ -85,7 +85,7 @@ def kfiou_loss(pred,
     return loss
 
 
-@ROTATED_LOSSES.register_module()
+@MODELS.register_module()
 class KFLoss(nn.Module):
     """Kalman filter based loss.
 

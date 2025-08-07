@@ -1,42 +1,40 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import mmcv
 import mmdet
+import mmengine
+from mmengine.utils import digit_version
 
-from .core import *  # noqa: F401, F403
-from .datasets import *  # noqa: F401, F403
-from .models import *  # noqa: F401, F403
 from .version import __version__, short_version
 
-
-def digit_version(version_str):
-    """Digit version."""
-    digit_version = []
-    for x in version_str.split('.'):
-        if x.isdigit():
-            digit_version.append(int(x))
-        elif x.find('rc') != -1:
-            patch_version = x.split('rc')
-            digit_version.append(int(patch_version[0]) - 1)
-            digit_version.append(int(patch_version[1]))
-    return digit_version
-
-
-mmcv_minimum_version = '1.5.3'
-mmcv_maximum_version = '1.8.0'
+mmcv_minimum_version = '2.0.0rc4'
+mmcv_maximum_version = '2.1.0'
 mmcv_version = digit_version(mmcv.__version__)
 
 assert (mmcv_version >= digit_version(mmcv_minimum_version)
         and mmcv_version <= digit_version(mmcv_maximum_version)), \
-    f'MMCV=={mmcv.__version__} is used but incompatible. ' \
-    f'Please install mmcv>={mmcv_minimum_version}, <={mmcv_maximum_version}.'
+    f'MMCV {mmcv.__version__} is incompatible with MMRotate {__version__}. ' \
+    f'Please use MMCV >= {mmcv_minimum_version}, ' \
+    f'<= {mmcv_maximum_version} instead.'
 
-mmdet_minimum_version = '2.25.1'
-mmdet_maximum_version = '3.0.0'
+mmengine_minimum_version = '0.6.0'
+mmengine_maximum_version = '1.0.0'
+mmengine_version = digit_version(mmengine.__version__)
+
+assert (mmengine_version >= digit_version(mmengine_minimum_version)
+        and mmengine_version < digit_version(mmengine_maximum_version)), \
+    f'MMEngine=={mmengine.__version__} is used but incompatible. ' \
+    f'Please install mmengine>={mmengine_minimum_version}, ' \
+    f'<{mmengine_maximum_version}.'
+
+mmdet_minimum_version = '3.0.0rc6'
+mmdet_maximum_version = '3.1.0'
 mmdet_version = digit_version(mmdet.__version__)
 
 assert (mmdet_version >= digit_version(mmdet_minimum_version)
-        and mmdet_version < digit_version(mmdet_maximum_version)), \
-    f'MMDetection=={mmdet.__version__} is used but incompatible. ' \
-    f'Please install mmdet>={mmdet_minimum_version}, <{mmdet_maximum_version}.'
+        and mmdet_version <= digit_version(mmdet_maximum_version)), \
+    f'MMDetection {mmdet.__version__} is incompatible ' \
+    f'with MMRotate {__version__}. ' \
+    f'Please use MMDetection >= {mmdet_minimum_version}, ' \
+    f'< {mmdet_maximum_version} instead.'
 
-__all__ = ['__version__', 'short_version']
+__all__ = ['__version__', 'short_version', 'digit_version']

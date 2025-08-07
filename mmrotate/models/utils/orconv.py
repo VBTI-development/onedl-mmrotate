@@ -5,7 +5,7 @@ import math
 import torch
 import torch.nn.functional as F
 from mmcv.ops import active_rotated_filter
-from mmcv.utils import to_2tuple
+from mmengine.utils import to_2tuple
 from torch.nn.modules import Conv2d
 from torch.nn.parameter import Parameter
 
@@ -115,7 +115,7 @@ class ORConv2d(Conv2d):
     def __repr__(self):
         arf_config = f'[{self.nOrientation}]' \
             if self.nOrientation == self.nRotation \
-            else '[{self.nOrientation}-{self.nRotation}]'
+            else f'[{self.nOrientation}-{self.nRotation}]'
         s = ('{name}({arf_config} {in_channels}, '
              '{out_channels}, kernel_size={kernel_size}'
              ', stride={stride}')

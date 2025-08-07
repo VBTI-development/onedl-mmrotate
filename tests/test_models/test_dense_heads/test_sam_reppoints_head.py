@@ -1,97 +1,110 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import mmcv
-import pytest
+import unittest
+
 import torch
+from mmdet.structures import DetDataSample
+from mmengine.config import ConfigDict
+from mmengine.structures import InstanceData
 
 from mmrotate.models.dense_heads import SAMRepPointsHead
+from mmrotate.utils import register_all_modules
 
 
-@pytest.mark.skipif(
-    not torch.cuda.is_available(), reason='requires CUDA support')
-@pytest.mark.parametrize('reassign', [True, False])
-def test_sam_head_loss(reassign):
-    """Tests sam head loss when truth is empty and non-empty.
+class TestSAMRepPointsHead(unittest.TestCase):
 
-    Args:
-        reassign (bool): If True, reassign samples.
-    """
-    s = 256
-    img_metas = [{
-        'img_shape': (s, s, 3),
-        'scale_factor': 1,
-        'pad_shape': (s, s, 3)
-    }]
-    train_cfg = mmcv.Config(
-        dict(
-            init=dict(
-                assigner=dict(type='ConvexAssigner', scale=4, pos_num=1),
-                allowed_border=-1,
-                pos_weight=-1,
-                debug=False),
-            refine=dict(
-                assigner=dict(type='SASAssigner', topk=3),
-                allowed_border=-1,
-                pos_weight=-1,
-                debug=False)))
-    self = SAMRepPointsHead(
-        num_classes=15,
-        in_channels=1,
-        feat_channels=1,
-        point_feat_channels=1,
-        stacked_convs=3,
-        num_points=9,
-        gradient_mul=0.3,
-        point_strides=[8, 16, 32, 64, 128],
-        point_base_scale=2,
-        loss_cls=dict(
-            type='FocalLoss',
-            use_sigmoid=True,
-            gamma=2.0,
-            alpha=0.25,
-            loss_weight=1.0),
-        loss_bbox_init=dict(type='BCConvexGIoULoss', loss_weight=0.375),
-        loss_bbox_refine=dict(type='ConvexGIoULoss', loss_weight=1.0),
-        transform_method='rotrect',
-        topk=6,
-        anti_factor=0.75,
-        train_cfg=train_cfg).cuda()
-    feat = [
-        torch.rand(1, 1, s // feat_size, s // feat_size).cuda()
-        for feat_size in [4, 8, 16, 32, 64]
-    ]
-    cls_scores, pts_out_init, pts_out_refine = self.forward(feat)
+    def setUp(self):
+        register_all_modules()
 
-    # Test that empty ground truth encourages the network to predict background
-    gt_bboxes = [torch.empty((0, 5)).cuda()]
-    gt_labels = [torch.LongTensor([]).cuda()]
-    gt_bboxes_ignore = None
-    empty_gt_losses = self.loss(cls_scores, pts_out_init, pts_out_refine,
-                                gt_bboxes, gt_labels, img_metas,
-                                gt_bboxes_ignore)
-    # When there is no truth, the cls loss should be nonzero but there should
-    # be no box loss.
-    empty_cls_loss = sum(empty_gt_losses['loss_cls'])
-    empty_pts_init_loss = sum(empty_gt_losses['loss_pts_init'])
-    empty_pts_refine_loss = sum(empty_gt_losses['loss_pts_refine'])
-    assert empty_cls_loss.item() != 0, 'cls loss should be non-zero'
-    assert empty_pts_init_loss.item() == 0, (
-        'there should be no pts_init loss when there are no true boxes')
-    assert empty_pts_refine_loss.item() == 0, (
-        'there should be no pts_refine loss when there are no true boxes')
+    def test_head_loss(self):
+        if not torch.cuda.is_available():
+            return unittest.skip('test requires GPU and torch+cuda')
 
-    # When truth is non-empty then both cls and box loss should be nonzero for
-    # random inputs
-    gt_bboxes = [
-        torch.Tensor([[23.6667, 23.8757, 238.6326, 151.8874, 0.]]).cuda(),
-    ]
-    gt_labels = [torch.LongTensor([2]).cuda()]
-    one_gt_losses = self.loss(cls_scores, pts_out_init, pts_out_refine,
-                              gt_bboxes, gt_labels, img_metas,
-                              gt_bboxes_ignore)
-    onegt_cls_loss = sum(one_gt_losses['loss_cls'])
-    onegt_pts_init_loss = sum(one_gt_losses['loss_pts_init'])
-    onegt_pts_refine_loss = sum(one_gt_losses['loss_pts_refine'])
-    assert onegt_cls_loss.item() != 0, 'cls loss should be non-zero'
-    assert onegt_pts_init_loss.item() >= 0, 'pts_init loss should be non-zero'
-    assert onegt_pts_refine_loss.item() >= 0, (
-        'pts_refine loss should be non-zero')
+        cfg = ConfigDict(
+            dict(
+                num_classes=2,
+                in_channels=32,
+                point_feat_channels=10,
+                num_points=9,
+                gradient_mul=0.3,
+                point_strides=[8, 16, 32, 64, 128],
+                point_base_scale=2,
+                loss_cls=dict(
+                    type='mmdet.FocalLoss',
+                    use_sigmoid=True,
+                    gamma=2.0,
+                    alpha=0.25,
+                    loss_weight=1.0),
+                loss_bbox_init=dict(
+                    type='BCConvexGIoULoss', loss_weight=0.375),
+                loss_bbox_refine=dict(type='ConvexGIoULoss', loss_weight=1.0),
+                transform_method='rotrect'),
+            train_cfg=dict(
+                init=dict(
+                    assigner=dict(type='ConvexAssigner', scale=4, pos_num=1),
+                    allowed_border=-1,
+                    pos_weight=-1,
+                    debug=False),
+                refine=dict(
+                    assigner=dict(type='SASAssigner', topk=3),
+                    allowed_border=-1,
+                    pos_weight=-1,
+                    debug=False)),
+            test_cfg=dict(
+                nms_pre=2000,
+                min_bbox_size=0,
+                score_thr=0.05,
+                nms=dict(type='nms_rotated', iou_threshold=0.4),
+                max_per_img=2000))
+        reppoints_head = SAMRepPointsHead(**cfg).cuda()
+        s = 256
+        img_metas = [{
+            'img_shape': (s, s),
+            'scale_factor': (1, 1),
+            'pad_shape': (s, s),
+            'batch_input_shape': (s, s)
+        }]
+        x = [
+            torch.rand(1, 32, s // 2**(i + 2), s // 2**(i + 2)).cuda()
+            for i in range(5)
+        ]
+
+        # Don't support empty ground truth now.
+
+        reppoints_head.train()
+        forward_outputs = reppoints_head.forward(x)
+
+        gt_instances = InstanceData()
+        gt_instances.bboxes = torch.Tensor([[
+            100.6326, 70.8874, 130.6667, 70.8874, 130.6667, 86.8757, 100.6326,
+            86.8757
+        ]]).cuda()
+        gt_instances.labels = torch.LongTensor([2]).cuda()
+        gt_bboxes_ignore = None
+        one_gt_losses = reppoints_head.loss_by_feat(*forward_outputs,
+                                                    [gt_instances], img_metas,
+                                                    gt_bboxes_ignore)
+        # loss_cls should all be non-zero
+        self.assertTrue(
+            all([loss.item() > 0 for loss in one_gt_losses['loss_cls']]))
+        # only one level loss_pts_init is non-zero
+        cnt_non_zero = 0
+        for loss in one_gt_losses['loss_pts_init']:
+            if loss.item() != 0:
+                cnt_non_zero += 1
+        self.assertEqual(cnt_non_zero, 1)
+
+        # only one level loss_pts_refine is non-zero
+        cnt_non_zero = 0
+        for loss in one_gt_losses['loss_pts_init']:
+            if loss.item() != 0:
+                cnt_non_zero += 1
+        self.assertEqual(cnt_non_zero, 1)
+
+        # test loss
+        samples = DetDataSample()
+        samples.set_metainfo(img_metas[0])
+        samples.gt_instances = gt_instances
+        reppoints_head.loss(x, [samples])
+        # test only predict
+        reppoints_head.eval()
+        reppoints_head.predict(x, [samples], rescale=True)

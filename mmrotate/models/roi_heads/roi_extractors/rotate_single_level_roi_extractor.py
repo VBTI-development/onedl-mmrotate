@@ -2,15 +2,14 @@
 import torch
 import torch.nn as nn
 from mmcv import ops
-from mmcv.runner import force_fp32
-from mmcv.utils import to_2tuple
 from mmdet.models.roi_heads.roi_extractors.base_roi_extractor import \
     BaseRoIExtractor
+from mmengine.utils import to_2tuple
 
-from ...builder import ROTATED_ROI_EXTRACTORS
+from mmrotate.registry import MODELS
 
 
-@ROTATED_ROI_EXTRACTORS.register_module()
+@MODELS.register_module()
 class RotatedSingleRoIExtractor(BaseRoIExtractor):
     """Extract RoI features from a single level feature map.
 
@@ -87,7 +86,6 @@ class RotatedSingleRoIExtractor(BaseRoIExtractor):
         target_lvls = target_lvls.clamp(min=0, max=num_levels - 1).long()
         return target_lvls
 
-    @force_fp32(apply_to=('feats', ), out_fp16=True)
     def forward(self, feats, rois, roi_scale_factor=None):
         """Forward function.
 
@@ -99,6 +97,7 @@ class RotatedSingleRoIExtractor(BaseRoIExtractor):
         Returns:
             torch.Tensor: Scaled RoI features.
         """
+        rois = rois.type_as(feats[0])
         from mmrotate import digit_version, mmcv_version
         if isinstance(self.roi_layers[0], ops.RiRoIAlignRotated
                       ) or mmcv_version == digit_version('1.4.5'):
@@ -106,16 +105,8 @@ class RotatedSingleRoIExtractor(BaseRoIExtractor):
         else:
             out_size = self.roi_layers[0].output_size
         num_levels = len(feats)
-        expand_dims = (-1, self.out_channels * out_size[0] * out_size[1])
-        if torch.onnx.is_in_onnx_export():
-            # Work around to export mask-rcnn to onnx
-            roi_feats = rois[:, :1].clone().detach()
-            roi_feats = roi_feats.expand(*expand_dims)
-            roi_feats = roi_feats.reshape(-1, self.out_channels, *out_size)
-            roi_feats = roi_feats * 0
-        else:
-            roi_feats = feats[0].new_zeros(
-                rois.size(0), self.out_channels, *out_size)
+        roi_feats = feats[0].new_zeros(
+            rois.size(0), self.out_channels, *out_size)
         # TODO: remove this when parrots supports
         if torch.__version__ == 'parrots':
             roi_feats.requires_grad = True
