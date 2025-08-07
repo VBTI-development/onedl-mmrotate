@@ -1,7 +1,7 @@
 
 [project]
 name = "onedl-mmrotate"
-version = "0.4.4-rc.0"
+version = "1.1.0-rc.0"
 description = "Rotation Detection Toolbox and Benchmark"
 readme = "README.md"
 authors = [
