@@ -1,11 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import Sequence, Tuple
-
 import numpy as np
 from mmcv.ops import batched_nms
 from mmdet.structures import DetDataSample, SampleList
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import Sequence, Tuple
 
 
 def translate_bboxes(bboxes: Tensor, offset: Sequence[int]):
@@ -98,7 +97,7 @@ def merge_results_by_nms(results: SampleList, offsets: np.ndarray,
         nms_cfg (dict): it should specify nms type and other parameters
             like `iou_threshold`.
 
-    Retunrns:
+    Returns:
         :obj:`DetDataSample`: merged results.
     """
     assert len(results) == offsets.shape[0], 'The `results` should has the ' \

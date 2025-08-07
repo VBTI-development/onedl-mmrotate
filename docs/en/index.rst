@@ -49,10 +49,7 @@ Welcome to MMRotate's documentation!
    notes/faq.md
 
 .. toctree::
-   :caption: Switch Language
-
-   switch_language.md
-
+   :caption: API Reference
 
 
 Indices and tables

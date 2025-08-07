@@ -1,0 +1,123 @@
+
+[project]
+name = "onedl-mmrotate"
+version = "0.4.4-rc.0"
+description = "Rotation Detection Toolbox and Benchmark"
+readme = "README.md"
+authors = [
+    { name = "MMRotate Authors"},
+    { name = "VBTI Software Team", email = "oss@vbti.nl"}
+]
+license = {text = "Apache-2.0"}
+keywords = [
+    "computer vision",
+    "object detection",
+    "rotation detection"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pycocotools",
+    "six",
+    "terminaltables",
+]
+
+[project.urls]
+Homepage = "https://github.com/vbti-development/onedl-mmrotate"
+Repository = "https://github.com/vbti-development/onedl-mmrotate"
+Documentation = "https://onedl-mmrotate.readthedocs.io/"
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "cython",
+    "numpy"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["mmrotate", "mmrotate.*"]
+where = ["."]
+exclude = ["configs", "tools", "demo"]
+
+[dependency-groups]
+tests = [
+    "asynctest",
+    "codecov",
+    "coverage",
+    "cython",
+    "kwarray",
+    "parameterized",
+    "pytest",
+    "scikit-learn",
+    "ubelt",
+    "wheel",
+    "xdoctest>=0.10.0",
+    "e2cnn"
+]
+docs = [
+    "docutils==0.16.0",
+    "markdown>=3.4.0",
+    "myst-parser",
+    "pytorch_sphinx_theme @ git+https://github.com/VBTI-development/onedl_sphinx_theme.git",
+    "sphinx",
+    "sphinx-copybutton",
+    "sphinx_markdown_tables",
+    "sphinx_rtd_theme",
+    "urllib3"
+]
+
+readthedocs = [
+    "onedl-mmcv",
+    "onedl-mmengine",
+    "onedl-mmdetection",
+    "e2cnn",
+    "torch",
+    "torchvision",
+]
+
+[project.optional-dependencies]
+optional = [
+    "imagecorruptions",
+    "scikit-learn",
+    "scipy"
+]
+miminstall = [
+    "onedl-mmcv",
+    "onedl-mmdetection",
+    "onedl-mmengine"
+]
+torch = [ "torch<2.6", "torchvision" ]
+
+[tool.isort]
+line_length = 79
+multi_line_output = 0
+known_standard_library = ["setuptools"]
+known_first_party = ["mmrotate"]
+known_third_party = ["PIL", "cv2", "e2cnn", "matplotlib", "mmcv", "mmdet", "numpy", "pytest", "pytorch_sphinx_theme", "terminaltables", "torch", "ts", "yaml"]
+no_lines_before = ["STDLIB", "LOCALFOLDER"]
+default_section = "THIRDPARTY"  # codespell:ignore
+
+[tool.yapf]
+based_on_style = "pep8"
+blank_line_before_nested_class_or_def = true
+split_before_expression_after_opening_paren = true
+
+[tool.codespell]
+skip = "*.ipynb"
+quiet-level = 3
+ignore-words-list = "DOTA,dota,warmup"
+
+# Note: install_requires and extras_require are still dynamically loaded in setup.py
+# due to custom logic and requirements file parsing.

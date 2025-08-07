@@ -1,6 +1,6 @@
 # Frequently Asked Questions (To be updated)
 
-We list some common troubles faced by many users and their corresponding solutions here. Feel free to enrich the list if you find any frequent issues and have ways to help others to solve them. If the contents here do not cover your issue, please create an issue using the [provided templates](https://github.com/open-mmlab/mmdetection/blob/master/.github/ISSUE_TEMPLATE/error-report.md/) and make sure you fill in all required information in the template.
+We list some common troubles faced by many users and their corresponding solutions here. Feel free to enrich the list if you find any frequent issues and have ways to help others to solve them. If the contents here do not cover your issue, please create an issue using the [provided templates](https://github.com/vbti-development/onedl-mmdetection/blob/master/.github/ISSUE_TEMPLATE/error-report.md/) and make sure you fill in all required information in the template.
 
 ## MMCV Installation
 
@@ -13,13 +13,13 @@ Compatible MMCV, MMDetection and MMRotate versions are shown as below. Please in
 | dev-1.x  | 0.6.0 \<= mmengine \< 1.0.0 | 2.0.0rc4 \<= mmcv \< 2.1.0 | 3.0.0rc6 \<= mmdet \< 3.1.0 |
 | 1.0.0rc1 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc5 \<= mmdet \< 3.1.0 |
 | 1.0.0rc0 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc2 \<= mmdet \< 3.1.0 |
-|       main       | mmcv-full>=1.5.0, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.2       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.1       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.3.0       | mmcv-full>=1.4.5, \<1.6.0 |   mmdet >= 2.22.0   |
-|      0.2.0       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
-|      0.1.1       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
-|      0.1.0       | mmcv-full>=1.4.5, \<1.5.0 |   mmdet >= 2.19.0   |
+| main     | mmcv-full>=1.5.0, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.2    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.1    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.3.0    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
+| 0.2.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
+| 0.1.1    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
+| 0.1.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
 
 - "No module named 'mmcv.ops'"; "No module named 'mmcv.\_ext'".
 
@@ -48,7 +48,7 @@ Compatible MMCV, MMDetection and MMRotate versions are shown as below. Please in
 
 - "setuptools.sandbox.UnpickleableException: DistutilsSetupError("each element of 'ext_modules' option must be an Extension instance or 2-tuple")"
 
-  1. If you are using miniconda rather than anaconda, check whether Cython is installed as indicated in [#3379](https://github.com/open-mmlab/mmdetection/issues/3379).
+  1. If you are using miniconda rather than anaconda, check whether Cython is installed as indicated in [#3379](https://github.com/vbti-development/onedl-mmdetection/issues/3379).
      You need to manually install Cython first and then run command `pip install -r requirements.txt`.
   2. You may also need to check the compatibility between the `setuptools`, `Cython`, and `PyTorch` in your environment.
 

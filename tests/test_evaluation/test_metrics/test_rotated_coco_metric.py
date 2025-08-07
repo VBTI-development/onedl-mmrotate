@@ -1,12 +1,11 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import os.path as osp
-import tempfile
-from unittest import TestCase
-
 import numpy as np
+import os.path as osp
 import pycocotools.mask as mask_util
+import tempfile
 import torch
 from mmengine.fileio import dump
+from unittest import TestCase
 
 from mmrotate.evaluation import RotatedCocoMetric
 
@@ -82,7 +81,8 @@ class TestRotatedCocoMetric(TestCase):
             'images': [image],
             'annotations':
             [annotation_1, annotation_2, annotation_3, annotation_4],
-            'categories': categories
+            'categories': categories,
+            'info': None,
         }
 
         dump(fake_json, json_name)

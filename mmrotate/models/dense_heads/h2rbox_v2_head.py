@@ -1,8 +1,6 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import copy
 import math
-from typing import Dict, List, Tuple
-
 import torch
 from mmdet.models.utils import filter_scores_and_topk, multi_apply
 from mmdet.structures.bbox import cat_boxes, get_box_tensor
@@ -11,6 +9,7 @@ from mmdet.utils import (ConfigType, InstanceList, OptConfigType,
 from mmengine import ConfigDict
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import Dict, List, Tuple
 
 from mmrotate.models.dense_heads.rotated_fcos_head import RotatedFCOSHead
 from mmrotate.registry import MODELS

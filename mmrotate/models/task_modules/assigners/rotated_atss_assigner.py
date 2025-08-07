@@ -1,13 +1,12 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import warnings
-from typing import List, Optional
-
 import torch
+import warnings
 from mmdet.models.task_modules.assigners.assign_result import AssignResult
 from mmdet.models.task_modules.assigners.base_assigner import BaseAssigner
 from mmdet.utils import ConfigType
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import List, Optional
 
 from mmrotate.registry import TASK_UTILS
 
@@ -227,8 +226,8 @@ class RotatedATSSAssigner(BaseAssigner):
         overlaps_inf = overlaps_inf.view(num_gt, -1).t()
 
         max_overlaps, argmax_overlaps = overlaps_inf.max(dim=1)
-        assigned_gt_inds[
-            max_overlaps != -INF] = argmax_overlaps[max_overlaps != -INF] + 1
+        assigned_gt_inds[max_overlaps !=
+                         -INF] = argmax_overlaps[max_overlaps != -INF] + 1
 
         assigned_labels = assigned_gt_inds.new_full((num_priors, ), -1)
         pos_inds = torch.nonzero(

@@ -1,11 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import List, Tuple
-
 import torch
 from mmdet.models.task_modules import AnchorGenerator
 from mmdet.structures.bbox import HorizontalBoxes
 from torch import Tensor
 from torch.nn.modules.utils import _pair
+from typing import List, Tuple
 
 from mmrotate.registry import TASK_UTILS
 from mmrotate.structures.bbox import RotatedBoxes
@@ -69,5 +68,5 @@ class PseudoRotatedAnchorGenerator(AnchorGenerator):
 
     @property
     def num_base_priors(self) -> None:
-        """list[int]: total number of base priors in a feature grid"""
+        """List[int]: total number of base priors in a feature grid."""
         return [1 for _ in self.strides]

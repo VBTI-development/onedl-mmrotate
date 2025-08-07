@@ -31,9 +31,9 @@
 
 ### New Contributors
 
-- @yuyi1005 made their first contribution in <https://github.com/open-mmlab/mmrotate/pull/617>
-- @yxzhao2022 made their first contribution in <https://github.com/open-mmlab/mmrotate/pull/639>
-- @YanxingLiu made their first contribution in <https://github.com/open-mmlab/mmrotate/pull/631>
+- @yuyi1005 made their first contribution in <https://github.com/vbti-development/onedl-mmrotate/pull/617>
+- @yxzhao2022 made their first contribution in <https://github.com/vbti-development/onedl-mmrotate/pull/639>
+- @YanxingLiu made their first contribution in <https://github.com/vbti-development/onedl-mmrotate/pull/631>
 
 ### Contributors
 
@@ -45,11 +45,11 @@ Thanks @yxzhao2022 @yuyi1005 @YanxingLiu @nijkah @RangeKing @austinmw @liuyanyi 
 
 We are excited to announce the release of MMRotate 1.0.0rc0.
 MMRotate 1.0.0rc0 is the first version of MMRotate 1.x, a part of the OpenMMLab 2.0 projects.
-Built upon the new [training engine](https://github.com/open-mmlab/mmengine), MMRotate 1.x unifies the interfaces of dataset, models, evaluation, and visualization with faster training and testing speed.
+Built upon the new [training engine](https://github.com/vbti-development/onedl-mmengine), MMRotate 1.x unifies the interfaces of dataset, models, evaluation, and visualization with faster training and testing speed.
 
 ### Highlights
 
-1. **New engines**. MMRotate 1.x is based on [MMEngine](https://github.com/open-mmlab/mmengine), which provides a general and powerful runner that allows more flexible customizations and significantly simplifies the entrypoints of high-level interfaces.
+1. **New engines**. MMRotate 1.x is based on [MMEngine](https://github.com/vbti-development/onedl-mmengine), which provides a general and powerful runner that allows more flexible customizations and significantly simplifies the entrypoints of high-level interfaces.
 
 2. **Unified interfaces**. As a part of the OpenMMLab 2.0 projects, MMRotate 1.x unifies and refactors the interfaces and internal logics of train, testing, datasets, models, evaluation, and visualization. All the OpenMMLab 2.0 projects share the same design in those interfaces and logics to allow the emergence of multi-task/modality algorithms.
 
@@ -70,14 +70,14 @@ We will update the [migration guide](../migration.md) to provide complete detail
 
 #### Training and testing
 
-- MMRotate 1.x uses Runner in [MMEngine](https://github.com/open-mmlab/mmengine) rather than that in MMCV. The new Runner implements and unifies the building logic of dataset, model, evaluation, and visualizer. Therefore, MMRotate 1.x no longer maintains the building logics of those modules in `mmrotate.train.apis` and `tools/train.py`. Those code have been migrated into [MMEngine](https://github.com/open-mmlab/mmengine/blob/main/mmengine/runner/runner.py). Please refer to the [migration guide of Runner in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/runner.html) for more details.
+- MMRotate 1.x uses Runner in [MMEngine](https://github.com/vbti-development/onedl-mmengine) rather than that in MMCV. The new Runner implements and unifies the building logic of dataset, model, evaluation, and visualizer. Therefore, MMRotate 1.x no longer maintains the building logics of those modules in `mmrotate.train.apis` and `tools/train.py`. Those code have been migrated into [MMEngine](https://github.com/vbti-development/onedl-mmengine/blob/main/mmengine/runner/runner.py). Please refer to the [migration guide of Runner in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/runner.html) for more details.
 - The Runner in MMEngine also supports testing and validation. The testing scripts are also simplified, which has similar logic as that in training scripts to build the runner.
 - The execution points of hooks in the new Runner have been enriched to allow more flexible customization. Please refer to the [migration guide of Hook in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/hook.html) for more details.
 - Learning rate and momentum scheduling has been migrated from `Hook` to `Parameter Scheduler` in MMEngine. Please refer to the [migration guide of Parameter Scheduler in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/param_scheduler.html) for more details.
 
 #### Configs
 
-- The [Runner in MMEngine](https://github.com/open-mmlab/mmengine/blob/main/mmengine/runner/runner.py) uses a different config structures to ease the understanding of the components in runner. Users can refer to the [migration guide in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/runner.html) for migration details.
+- The [Runner in MMEngine](https://github.com/vbti-development/onedl-mmengine/blob/main/mmengine/runner/runner.py) uses a different config structures to ease the understanding of the components in runner. Users can refer to the [migration guide in MMEngine](https://mmengine.readthedocs.io/en/latest/migration/runner.html) for migration details.
 - The file names of configs and models are also refactored to follow the new rules unified across OpenMMLab 2.0 projects.
 
 #### Dataset

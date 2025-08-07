@@ -1,7 +1,5 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import copy
-from typing import List, Optional, Tuple, Union
-
 import torch
 import torch.nn as nn
 from mmdet.models.dense_heads.retina_head import RetinaHead
@@ -13,13 +11,14 @@ from mmdet.utils import ConfigType, InstanceList, MultiConfig, OptInstanceList
 from mmengine.config import ConfigDict
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import List, Optional, Tuple, Union
 
 from mmrotate.registry import MODELS, TASK_UTILS
 
 
 @MODELS.register_module()
 class AngleBranchRetinaHead(RetinaHead):
-    """retina head with angle regression branch.
+    """Retina head with angle regression branch.
 
     The head contains three subnetworks. The first classifies anchor boxes and
     the second regresses deltas for the anchors, the third regresses angles.

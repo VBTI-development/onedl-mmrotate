@@ -1,12 +1,11 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import os.path as osp
-import xml.etree.ElementTree as ET
-from typing import List, Optional, Union
-
 import mmcv
 import numpy as np
+import os.path as osp
+import xml.etree.ElementTree as ET
 from mmengine.dataset import BaseDataset
 from mmengine.fileio import get, get_local_path, list_from_file
+from typing import List, Optional, Union
 
 from mmrotate.registry import DATASETS
 
@@ -56,7 +55,7 @@ class DIORDataset(BaseDataset):
             raise RuntimeError(
                 'The `file_client_args` is deprecated, '
                 'please use `backend_args` instead, please refer to'
-                'https://github.com/open-mmlab/mmdetection/blob/dev-1.x/configs/_base_/datasets/coco_detection.py'  # noqa: E501
+                'https://github.com/vbti-development/onedl-mmdetection/blob/main/configs/_base_/datasets/coco_detection.py'  # noqa: E501
             )
         super().__init__(**kwargs)
 

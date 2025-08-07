@@ -45,7 +45,7 @@ DOTA1.0
 |                  LSKNet_S (1024,1024,200)                  | 81.64 | le90  |   1x    |    1\*8    |     [lsk_s_fpn_1x_dota_le90](./configs/lsknet/lsk_s_fpn_1x_dota_le90.py)     |         [model](https://download.openmmlab.com/mmrotate/v1.0/lsknet/lsk_s_fpn_1x_dota_le90/lsk_s_fpn_1x_dota_le90_20230116-99749191.pth) \| [log](https://download.openmmlab.com/mmrotate/v1.0/lsknet/lsk_s_fpn_1x_dota_le90/lsk_s_fpn_1x_dota_le90_20230116.log)         |              |
 |                 LSKNet_S\* (1024,1024,200)                 | 81.85 | le90  |   1x    |    1\*8    | [lsk_s_ema_fpn_1x_dota_le90](./configs/lsknet/lsk_s_ema_fpn_1x_dota_le90.py) | [model](https://download.openmmlab.com/mmrotate/v1.0/lsknet/lsk_s_ema_fpn_1x_dota_le90/lsk_s_ema_fpn_1x_dota_le90_20230212-30ed4041.pth) \| [log](https://download.openmmlab.com/mmrotate/v1.0/lsknet/lsk_s_ema_fpn_1x_dota_le90/lsk_s_ema_fpn_1x_dota_le90_20230212.log) | EMA Finetune |
 
-<!-- https://github.com/open-mmlab/mmdetection/tree/3.x/configs/rtmdet -->
+<!-- https://github.com/vbti-development/onedl-mmdetection/tree/3.x/configs/rtmdet -->
 
 HRSC2016
 
@@ -103,11 +103,11 @@ A project does not necessarily have to be finished in a single PR, but it's esse
 
   - [ ] Type hints and docstrings
 
-    <!-- Ideally *all* the methods should have [type hints](https://www.pythontutorial.net/python-basics/python-type-hints/) and [docstrings](https://google.github.io/styleguide/pyguide.html#381-docstrings). [Example](https://github.com/open-mmlab/mmrotate/blob/766185ed317f99379cb14035a6f9e5cf8a5340ad/mmrotate/structures/bbox/box_converters.py#L61-L78) -->
+    <!-- Ideally *all* the methods should have [type hints](https://www.pythontutorial.net/python-basics/python-type-hints/) and [docstrings](https://google.github.io/styleguide/pyguide.html#381-docstrings). [Example](https://github.com/vbti-development/onedl-mmrotate/blob/766185ed317f99379cb14035a6f9e5cf8a5340ad/mmrotate/structures/bbox/box_converters.py#L61-L78) -->
 
   - [ ] Unit tests
 
-    <!-- Unit tests for each module are required. [Example](https://github.com/open-mmlab/mmrotate/blob/766185ed317f99379cb14035a6f9e5cf8a5340ad/tests/test_structures/test_bbox/test_box_converters.py#L43-L52) -->
+    <!-- Unit tests for each module are required. [Example](https://github.com/vbti-development/onedl-mmrotate/blob/766185ed317f99379cb14035a6f9e5cf8a5340ad/tests/test_structures/test_bbox/test_box_converters.py#L43-L52) -->
 
   - [ ] Code polishing
 
@@ -115,10 +115,10 @@ A project does not necessarily have to be finished in a single PR, but it's esse
 
   - [ ] Metafile.yml
 
-    <!-- It will be parsed by MIM and Inferencer. [Example](https://github.com/open-mmlab/mmrotate/blob/1.x/configs/r3det/metafile.yml) -->
+    <!-- It will be parsed by MIM and Inferencer. [Example](https://github.com/vbti-development/onedl-mmrotate/blob/main/configs/r3det/metafile.yml) -->
 
 - [ ] Move your modules into the core package following the codebase's file hierarchy structure.
 
-  <!-- In particular, you may have to refactor this README into a standard one. [Example](https://github.com/open-mmlab/mmrotate/blob/1.x/configs/r3det/README.md) -->
+  <!-- In particular, you may have to refactor this README into a standard one. [Example](https://github.com/vbti-development/onedl-mmrotate/blob/main/configs/r3det/README.md) -->
 
 - [ ] Refactor your modules into the core package following the codebase's file hierarchy structure.

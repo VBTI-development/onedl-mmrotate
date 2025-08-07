@@ -122,5 +122,8 @@ data/
 data
 tmp
 
+.vscode
+.idea
+
 # custom
 mmrotate/.mim

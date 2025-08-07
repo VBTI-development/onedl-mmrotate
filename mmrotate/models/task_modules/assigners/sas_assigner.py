@@ -1,11 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import List, Optional
-
 import torch
 from mmcv.ops import convex_iou, points_in_polygons
 from mmdet.models.task_modules.assigners.assign_result import AssignResult
 from mmdet.models.task_modules.assigners.base_assigner import BaseAssigner
 from mmengine.structures import InstanceData
+from typing import List, Optional
 
 from mmrotate.registry import TASK_UTILS
 from mmrotate.structures.bbox import qbox2hbox
@@ -194,8 +193,8 @@ class SASAssigner(BaseAssigner):
         overlaps_inf = overlaps_inf.view(num_gt, -1).t()
 
         max_overlaps, argmax_overlaps = overlaps_inf.max(dim=1)
-        assigned_gt_inds[
-            max_overlaps != -INF] = argmax_overlaps[max_overlaps != -INF] + 1
+        assigned_gt_inds[max_overlaps !=
+                         -INF] = argmax_overlaps[max_overlaps != -INF] + 1
 
         if gt_labels is not None:
             assigned_labels = assigned_gt_inds.new_full((num_priors, ), -1)

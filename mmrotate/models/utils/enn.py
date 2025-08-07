@@ -12,7 +12,7 @@ gspace = gspaces.Rot2dOnR2(N=N)
 
 
 def build_enn_divide_feature(planes):
-    """build a enn regular feature map with the specified number of channels
+    """Build a enn regular feature map with the specified number of channels
     divided by N."""
     assert gspace.fibergroup.order() > 0
     N = gspace.fibergroup.order()
@@ -22,19 +22,19 @@ def build_enn_divide_feature(planes):
 
 
 def build_enn_feature(planes):
-    """build a enn regular feature map with the specified number of
+    """Build a enn regular feature map with the specified number of
     channels."""
     return enn.FieldType(gspace, planes * [gspace.regular_repr])
 
 
 def build_enn_trivial_feature(planes):
-    """build a enn trivial feature map with the specified number of
+    """Build a enn trivial feature map with the specified number of
     channels."""
     return enn.FieldType(gspace, planes * [gspace.trivial_repr])
 
 
 def build_enn_norm_layer(num_features, postfix=''):
-    """build an enn normalizion layer."""
+    """Build an enn normalizion layer."""
     in_type = build_enn_divide_feature(num_features)
     return 'bn' + str(postfix), enn.InnerBatchNorm(in_type)
 
@@ -47,7 +47,7 @@ def ennConv(inplanes,
             groups=1,
             bias=False,
             dilation=1):
-    """enn convolution.
+    """Enn convolution.
 
     Args:
         in_channels (List[int]): Number of input channels per scale.
@@ -86,7 +86,7 @@ def ennTrivialConv(inplanes,
                    groups=1,
                    bias=False,
                    dilation=1):
-    """enn convolution with trivial input featurn.
+    """Enn convolution with trivial input featurn.
 
     Args:
         in_channels (List[int]): Number of input channels per scale.
@@ -119,7 +119,7 @@ def ennTrivialConv(inplanes,
 
 
 def ennReLU(inplanes):
-    """enn ReLU."""
+    """Enn ReLU."""
     in_type = build_enn_divide_feature(inplanes)
     return enn.ReLU(in_type, inplace=False)
 
@@ -129,7 +129,7 @@ def ennAvgPool(inplanes,
                stride=None,
                padding=0,
                ceil_mode=False):
-    """enn Average Pooling.
+    """Enn Average Pooling.
 
     Args:
         inplanes (int): The number of input channel.
@@ -150,7 +150,7 @@ def ennAvgPool(inplanes,
 
 
 def ennMaxPool(inplanes, kernel_size, stride=1, padding=0):
-    """enn Max Pooling."""
+    """Enn Max Pooling."""
     in_type = build_enn_divide_feature(inplanes)
     return enn.PointwiseMaxPool(
         in_type, kernel_size=kernel_size, stride=stride, padding=padding)
@@ -160,7 +160,7 @@ def ennInterpolate(inplanes,
                    scale_factor,
                    mode='nearest',
                    align_corners=False):
-    """enn Interpolate."""
+    """Enn Interpolate."""
     in_type = build_enn_divide_feature(inplanes)
     return enn.R2Upsampling(
         in_type, scale_factor, mode=mode, align_corners=align_corners)

@@ -12,7 +12,7 @@ log file. Run `pip install seaborn` first to install the dependency.
 python tools/analysis_tools/analyze_logs.py plot_curve [--keys ${KEYS}] [--title ${TITLE}] [--legend ${LEGEND}] [--backend ${BACKEND}] [--style ${STYLE}] [--out ${OUT_FILE}]
 ```
 
-![loss curve image](https://raw.githubusercontent.com/open-mmlab/mmdetection/master/resources/loss_curve.png)
+![loss curve image](https://raw.githubusercontent.com/vbti-development/onedl-mmdetection/master/resources/loss_curve.png)
 
 Examples:
 
@@ -115,7 +115,7 @@ mmrotate-serve:latest
 ### 4. Test deployment
 
 ```shell
-curl -O https://raw.githubusercontent.com/open-mmlab/mmrotate/main/demo/demo.jpg
+curl -O https://raw.githubusercontent.com/vbti-development/onedl-mmrotate/main/demo/demo.jpg
 curl http://127.0.0.1:8080/predictions/${MODEL_NAME} -T demo.jpg
 ```
 
@@ -212,7 +212,7 @@ comparisons, but double check it before you adopt it in technical reports or pap
 1. FLOPs are related to the input shape while parameters are not. The default
    input shape is (1, 3, 1024, 1024).
 2. Some operators are not counted into FLOPs like DCN and custom operators. So models with dcn such as S<sup>2</sup>A-Net and RepPoints based model got wrong flops.
-   Refer to [`mmcv.cnn.get_model_complexity_info()`](https://github.com/open-mmlab/mmcv/blob/master/mmcv/cnn/utils/flops_counter.py) for details.
+   Refer to [`mmcv.cnn.get_model_complexity_info()`](https://github.com/vbti-development/onedl-mmcv/blob/master/mmcv/cnn/utils/flops_counter.py) for details.
 3. The FLOPs of two-stage detectors is dependent on the number of proposals.
 
 ### Prepare a model for publishing

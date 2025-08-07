@@ -8,7 +8,7 @@
 
 ```shell
 # 假设已经安装mmengine、mmcv 2.x、mmdetection
-git clone https://github.com/open-mmlab/mmrotate -b dev-1.x
+git clone https://github.com/vbti-development/onedl-mmrotate -b dev-1.x
 cd mmrotate
 export MMROTATE_HOME=$(pwd)
 pip install -v -e .

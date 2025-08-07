@@ -1,6 +1,4 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from typing import Optional
-
 import torch
 from mmcv.ops import batched_nms
 from mmdet.models.dense_heads import RPNHead
@@ -8,6 +6,7 @@ from mmdet.structures.bbox import (BaseBoxes, get_box_tensor, get_box_wh,
                                    scale_boxes)
 from mmengine.config import ConfigDict
 from mmengine.structures import InstanceData
+from typing import Optional
 
 from mmrotate.registry import MODELS
 from mmrotate.structures.bbox import rbox2hbox
@@ -23,7 +22,7 @@ class OrientedRPNHead(RPNHead):
                            rescale: bool = False,
                            with_nms: bool = True,
                            img_meta: Optional[dict] = None) -> InstanceData:
-        """bbox post-processing method, which use horizontal bboxes for NMS,
+        """Bbox post-processing method, which use horizontal bboxes for NMS,
         but return the rotated bboxes result.
 
         Args:

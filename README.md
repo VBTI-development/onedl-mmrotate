@@ -1,45 +1,39 @@
 <div align="center">
-  <img src="resources/mmrotate-logo.png" width="450"/>
+  <img width="600" alt="onedl-mmrotate" src="https://raw.githubusercontent.com/VBTI-development/onedl-mmrotate/main/resources/onedl-mmrotate-logo.png"/>
   <div>&nbsp;</div>
   <div align="center">
-    <b><font size="5">OpenMMLab website</font></b>
-    <sup>
-      <a href="https://openmmlab.com">
-        <i><font size="4">HOT</font></i>
-      </a>
-    </sup>
+    <a href="https://vbti.ai">
+      <b><font size="5">VBTI Website</font></b>
+    </a>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <b><font size="5">OpenMMLab platform</font></b>
-    <sup>
-      <a href="https://platform.openmmlab.com">
-        <i><font size="4">TRY IT OUT</font></i>
-      </a>
-    </sup>
+    <a href="https://onedl.ai">
+      <b><font size="5">OneDL platform</font></b>
+    </a>
   </div>
-  <div>&nbsp;</div>
+<div>&nbsp;</div>
 
-[![PyPI](https://img.shields.io/pypi/v/mmrotate)](https://pypi.org/project/mmrotate)
-[![docs](https://img.shields.io/badge/docs-latest-blue)](https://mmrotate.readthedocs.io/en/1.x/)
-[![badge](https://github.com/open-mmlab/mmrotate/workflows/build/badge.svg)](https://github.com/open-mmlab/mmrotate/actions)
-[![codecov](https://codecov.io/gh/open-mmlab/mmrotate/branch/main/graph/badge.svg)](https://codecov.io/gh/open-mmlab/mmrotate)
-[![license](https://img.shields.io/github/license/open-mmlab/mmrotate.svg)](https://github.com/open-mmlab/mmrotate/blob/main/LICENSE)
-[![open issues](https://isitmaintained.com/badge/open/open-mmlab/mmrotate.svg)](https://github.com/open-mmlab/mmrotate/issues)
-[![issue resolution](https://isitmaintained.com/badge/resolution/open-mmlab/mmrotate.svg)](https://github.com/open-mmlab/mmrotate/issues)
+[![Docs](https://img.shields.io/badge/docs-latest-blue)](https://onedl-mmrotate.readthedocs.io/en/latest/)
+[![license](https://img.shields.io/github/license/VBTI-development/onedl-mmrotate.svg)](https://github.com/VBTI-development/onedl-mmrotate/blob/main/LICENSE)
 
-[📘Documentation](https://mmrotate.readthedocs.io/en/1.x/) |
-[🛠️Installation](https://mmrotate.readthedocs.io/en/1.x/install.html) |
-[👀Model Zoo](https://mmrotate.readthedocs.io/en/1.x/model_zoo.html) |
-[🆕Update News](https://mmrotate.readthedocs.io/en/1.x/notes/changelog.html) |
-[🚀Ongoing Projects](https://github.com/open-mmlab/mmrotate/projects) |
-[🤔Reporting Issues](https://github.com/open-mmlab/mmrotate/issues/new/choose)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/onedl-mmrotate)](https://pypi.org/project/onedl-mmrotate/)
+[![PyPI](https://img.shields.io/pypi/v/onedl-mmrotate)](https://pypi.org/project/onedl-mmrotate)
+
+[![Build Status](https://github.com/VBTI-development/onedl-mmrotate/actions/workflows/merge_stage_test.yml/badge.svg)](https://github.com/VBTI-development/onedl-mmrotate/actions/workflows/merge_stage_test.yml)
+[![open issues](https://isitmaintained.com/badge/open/VBTI-development/onedl-mmrotate.svg)](https://github.com/VBTI-development/onedl-mmrotate/issues)
+[![issue resolution](https://isitmaintained.com/badge/resolution/VBTI-development/onedl-mmrotate.svg)](https://github.com/VBTI-development/onedl-mmrotate/issues)
+
+[📘Documentation](https://onedl-mmrotate.readthedocs.io/en/latest/) |
+[🛠️Installation](https://onedl-mmrotate.readthedocs.io/en/latest/install.html) |
+[👀Model Zoo](https://onedl-mmrotate.readthedocs.io/en/latest/model_zoo.html) |
+[🆕Update News](https://onedl-mmrotate.readthedocs.io/en/latest/notes/changelog.html) |
+[🚀Ongoing Projects](https://github.com/vbti-development/onedl-mmrotate/projects) |
+[🤔Reporting Issues](https://github.com/vbti-development/onedl-mmrotate/issues/new/choose)
 
 </div>
 
-<!--中/英 文档切换-->
-
 <div align="center">
 
-English | [简体中文](README_zh-CN.md)
+English
 
 </div>
 
@@ -94,6 +88,10 @@ https://user-images.githubusercontent.com/10410257/154433305-416d129b-60c8-44c7-
 
 ### Highlight
 
+The VBTI development team is reviving MMLabs code, making it work with
+newer pytorch versions and fixing bugs. We are only a small team, so your help
+is appreciated.
+
 We are excited to announce our latest work on real-time object recognition tasks, **RTMDet**, a family of fully convolutional single-stage detectors. RTMDet not only achieves the best parameter-accuracy trade-off on object detection from tiny to extra-large model sizes but also obtains new state-of-the-art performance on instance segmentation and rotated object detection tasks. Details can be found in the [technical report](https://arxiv.org/abs/2212.07784). Pre-trained models are [here](configs/rotated_rtmdet).
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/rtmdet-an-empirical-study-of-designing-real/real-time-instance-segmentation-on-mscoco)](https://paperswithcode.com/sota/real-time-instance-segmentation-on-mscoco?p=rtmdet-an-empirical-study-of-designing-real)
@@ -117,31 +115,31 @@ We are excited to announce our latest work on real-time object recognition tasks
 
 ## Installation
 
-Please refer to [Installation](https://mmrotate.readthedocs.io/en/1.x/get_started.html) for more detailed instruction.
+Please refer to [Installation](https://onedl-mmrotate.readthedocs.io/en/latest/get_started.html) for more detailed instruction.
 
 ## Getting Started
 
-Please see [Overview](https://mmrotate.readthedocs.io/en/1.x/overview.html) for the general introduction of MMRotate.
+Please see [Overview](https://onedl-mmrotate.readthedocs.io/en/latest/overview.html) for the general introduction of MMRotate.
 
-For detailed user guides and advanced guides, please refer to our [documentation](https://mmrotate.readthedocs.io/en/1.x/):
+For detailed user guides and advanced guides, please refer to our [documentation](https://onedl-mmrotate.readthedocs.io/en/latest/):
 
 - User Guides
-  - [Train & Test](https://mmrotate.readthedocs.io/en/1.x/user_guides/index.html#train-test)
-    - [Learn about Configs](https://mmrotate.readthedocs.io/en/1.x/user_guides/config.html)
-    - [Inference with existing models](https://mmrotate.readthedocs.io/en/1.x/user_guides/inference.html)
-    - [Dataset Prepare](https://mmrotate.readthedocs.io/en/1.x/user_guides/dataset_prepare.html)
-    - [Test existing models on standard datasets](https://mmrotate.readthedocs.io/en/1.x/user_guides/train_test.html)
-    - [Train predefined models on standard datasets](https://mmrotate.readthedocs.io/en/1.x/user_guides/train_test.html)
-    - [Test Results Submission](https://mmrotate.readthedocs.io/en/1.x/user_guides/test_results_submission.html)
-  - [Useful Tools](https://mmrotate.readthedocs.io/en/1.x/user_guides/index.html#useful-tools)
+  - [Train & Test](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/index.html#train-test)
+    - [Learn about Configs](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/config.html)
+    - [Inference with existing models](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/inference.html)
+    - [Dataset Prepare](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/dataset_prepare.html)
+    - [Test existing models on standard datasets](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/train_test.html)
+    - [Train predefined models on standard datasets](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/train_test.html)
+    - [Test Results Submission](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/test_results_submission.html)
+  - [Useful Tools](https://onedl-mmrotate.readthedocs.io/en/latest/user_guides/index.html#useful-tools)
 - Advanced Guides
-  - [Basic Concepts](https://mmrotate.readthedocs.io/en/1.x/advanced_guides/index.html#basic-concepts)
-  - [Component Customization](https://mmrotate.readthedocs.io/en/1.x/advanced_guides/index.html#component-customization)
-  - [How to](https://mmrotate.readthedocs.io/en/1.x/advanced_guides/index.html#how-to)
+  - [Basic Concepts](https://onedl-mmrotate.readthedocs.io/en/latest/advanced_guides/index.html#basic-concepts)
+  - [Component Customization](https://onedl-mmrotate.readthedocs.io/en/latest/advanced_guides/index.html#component-customization)
+  - [How to](https://onedl-mmrotate.readthedocs.io/en/latest/advanced_guides/index.html#how-to)
 
 We also provide colab tutorial [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](demo/MMRotate_Tutorial.ipynb).
 
-To migrate from MMRotate 0.x, please refer to [migration](https://mmrotate.readthedocs.io/en/1.x/migration.html).
+To migrate from MMRotate 0.x, please refer to [migration](https://onedl-mmrotate.readthedocs.io/en/latest/migration.html).
 
 ## Model Zoo
 
@@ -213,17 +211,22 @@ If you use this toolbox or benchmark in your research, please cite this project.
 
 This project is released under the [Apache 2.0 license](LICENSE).
 
+## Projects in VBTI-development
+
+- [MMEngine](https://github.com/vbti-development/onedl-mmengine): OpenMMLab foundational library for training deep learning models.
+- [MMCV](https://github.com/vbti-development/onedl-mmcv): OpenMMLab foundational library for computer vision.
+- [MMPreTrain](https://github.com/vbti-development/onedl-mmpretrain): OpenMMLab pre-training toolbox and benchmark.
+- [MMDetection](https://github.com/vbti-development/onedl-mmdetection): OpenMMLab detection toolbox and benchmark.
+- [MMRotate](https://github.com/vbti-development/onedl-mmrotate): OpenMMLab rotated object detection toolbox and benchmark.
+- [MMSegmentation](https://github.com/vbti-development/onedl-mmsegmentation): OpenMMLab semantic segmentation toolbox and benchmark.
+- [MMDeploy](https://github.com/vbti-development/onedl-mmdeploy): OpenMMLab model deployment framework.
+- [MIM](https://github.com/vbti-development/onedl-mim): MIM installs OpenMMLab packages.
+
 ## Projects in OpenMMLab
 
-- [MMEngine](https://github.com/open-mmlab/mmengine): OpenMMLab foundational library for training deep learning models.
-- [MMCV](https://github.com/open-mmlab/mmcv): OpenMMLab foundational library for computer vision.
-- [MMPreTrain](https://github.com/open-mmlab/mmpretrain): OpenMMLab pre-training toolbox and benchmark.
 - [MMagic](https://github.com/open-mmlab/mmagic): Open**MM**Lab **A**dvanced, **G**enerative and **I**ntelligent **C**reation toolbox.
-- [MMDetection](https://github.com/open-mmlab/mmdetection): OpenMMLab detection toolbox and benchmark.
 - [MMDetection3D](https://github.com/open-mmlab/mmdetection3d): OpenMMLab's next-generation platform for general 3D object detection.
-- [MMRotate](https://github.com/open-mmlab/mmrotate): OpenMMLab rotated object detection toolbox and benchmark.
 - [MMYOLO](https://github.com/open-mmlab/mmyolo): OpenMMLab YOLO series toolbox and benchmark.
-- [MMSegmentation](https://github.com/open-mmlab/mmsegmentation): OpenMMLab semantic segmentation toolbox and benchmark.
 - [MMOCR](https://github.com/open-mmlab/mmocr): OpenMMLab text detection, recognition, and understanding toolbox.
 - [MMPose](https://github.com/open-mmlab/mmpose): OpenMMLab pose estimation toolbox and benchmark.
 - [MMHuman3D](https://github.com/open-mmlab/mmhuman3d): OpenMMLab 3D human parametric model toolbox and benchmark.
@@ -235,7 +238,5 @@ This project is released under the [Apache 2.0 license](LICENSE).
 - [MMFlow](https://github.com/open-mmlab/mmflow): OpenMMLab optical flow toolbox and benchmark.
 - [MMEditing](https://github.com/open-mmlab/mmediting): OpenMMLab image and video editing toolbox.
 - [MMGeneration](https://github.com/open-mmlab/mmgeneration): OpenMMLab image and video generative models toolbox.
-- [MMDeploy](https://github.com/open-mmlab/mmdeploy): OpenMMLab model deployment framework.
-- [MIM](https://github.com/open-mmlab/mim): MIM installs OpenMMLab packages.
 - [MMEval](https://github.com/open-mmlab/mmeval): A unified evaluation library for multiple machine learning libraries.
 - [Playground](https://github.com/open-mmlab/playground): A central hub for gathering and showcasing amazing projects built upon OpenMMLab.

@@ -1,8 +1,6 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import copy
 import math
-from typing import Dict, List, Optional, Tuple
-
 import torch
 from mmcv.cnn import Scale
 from mmdet.models.utils import (filter_scores_and_topk, multi_apply,
@@ -13,6 +11,7 @@ from mmdet.utils import (ConfigType, InstanceList, OptConfigType,
 from mmengine import ConfigDict
 from mmengine.structures import InstanceData
 from torch import Tensor
+from typing import Dict, List, Optional, Tuple
 
 from mmrotate.models.dense_heads.rotated_fcos_head import RotatedFCOSHead
 from mmrotate.registry import MODELS
@@ -345,8 +344,9 @@ class H2RBoxHead(RotatedFCOSHead):
             pos_inds_ss_v = torch.empty_like(pos_inds, dtype=torch.bool)
             offset = 0
             for h, w in featmap_sizes:
-                level_mask = (offset <= pos_inds).logical_and(
-                    pos_inds < offset + num_imgs * h * w)
+                level_mask = (offset
+                              <= pos_inds).logical_and(pos_inds < offset +
+                                                       num_imgs * h * w)
                 pos_ind = pos_inds[level_mask] - offset
                 xy = torch.stack((pos_ind % w, (pos_ind // w) % h), dim=-1)
                 b = pos_ind // (w * h)
