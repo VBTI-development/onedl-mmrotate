@@ -8,7 +8,7 @@ This project supports 360-degree rotated rectangle detection on the [TRR360D](ht
 
 ```shell
 # Assuming mmengine, mmcv 2.x, and mmdetection are already installed
-git clone https://github.com/open-mmlab/mmrotate -b dev-1.x
+git clone https://github.com/vbti-development/onedl-mmrotate -b dev-1.x
 cd mmrotate
 export MMROTATE_HOME=$(pwd)
 pip install -v -e .

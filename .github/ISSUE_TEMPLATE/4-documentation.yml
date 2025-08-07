@@ -11,7 +11,7 @@ body:
     description: This issue is related to the
     options:
       - master branch  https://mmrotate.readthedocs.io/en/latest/
-      - 1.x branch https://mmrotate.readthedocs.io/en/1.x/
+      - 1.x branch https://onedl-mmrotate.readthedocs.io/en/latest/
   validations:
     required: true
 

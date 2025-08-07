@@ -12,7 +12,7 @@ def register_all_modules(init_default_scope: bool = True) -> None:
             When `init_default_scope=True`, the global default scope will be
             set to `mmrotate`, anmmrotate all registries will build modules from mmrotate's
             registry node. To understand more about the registry, please refer
-            to https://github.com/open-mmlab/mmengine/blob/main/docs/en/tutorials/registry.md
+            to https://github.com/vbti-development/onedl-mmengine/blob/main/docs/en/tutorials/registry.md
             Defaults to True.
     """  # noqa
     import mmrotate.datasets  # noqa: F401,F403

@@ -99,7 +99,7 @@ class MyOptimizerConstructor(object):
 
 ```
 
-The default optimizer constructor is implemented [here](https://github.com/open-mmlab/mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/optimizer/default_constructor.py#L11), which could also serve as a template for new optimizer constructor.
+The default optimizer constructor is implemented [here](https://github.com/vbti-development/onedl-mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/optimizer/default_constructor.py#L11), which could also serve as a template for new optimizer constructor.
 
 ### Additional settings
 
@@ -118,7 +118,7 @@ Tricks not implemented by the optimizer should be implemented through optimizer 
 - __Use momentum schedule to accelerate model convergence__:
   We support momentum scheduler to modify model's momentum according to learning rate, which could make the model converge in a faster way.
   Momentum scheduler is usually used with LR scheduler, for example, the following config is used in 3D detection to accelerate convergence.
-  For more details, please refer to the implementation of [CyclicLrUpdater](https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L327) and [CyclicMomentumUpdater](https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/momentum_updater.py#L130).
+  For more details, please refer to the implementation of [CyclicLrUpdater](https://github.com/vbti-development/onedl-mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L327) and [CyclicMomentumUpdater](https://github.com/vbti-development/onedl-mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/momentum_updater.py#L130).
 
   ```python
   lr_config = dict(
@@ -137,8 +137,8 @@ Tricks not implemented by the optimizer should be implemented through optimizer 
 
 ## Customize training schedules
 
-By default we use step learning rate with 1x schedule, this calls [`StepLRHook`](https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L153) in MMCV.
-We support many other learning rate schedule [here](https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/lr_updater.py), such as `CosineAnnealing` and `Poly` schedule. Here are some examples
+By default we use step learning rate with 1x schedule, this calls [`StepLRHook`](https://github.com/vbti-development/onedl-mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L153) in MMCV.
+We support many other learning rate schedule [here](https://github.com/vbti-development/onedl-mmcv/blob/master/mmcv/runner/hooks/lr_updater.py), such as `CosineAnnealing` and `Poly` schedule. Here are some examples
 
 - Poly schedule:
 
@@ -265,9 +265,9 @@ If the hook is already implemented in MMCV, you can directly modify the config t
 
 #### 4. Example: `NumClassCheckHook`
 
-We implement a customized hook named  [NumClassCheckHook](https://github.com/open-mmlab/mmdetection/blob/master/mmdet/datasets/utils.py) to check whether the `num_classes` in head matches the length of `CLASSES` in `dataset`.
+We implement a customized hook named  [NumClassCheckHook](https://github.com/vbti-development/onedl-mmdetection/blob/master/mmdet/datasets/utils.py) to check whether the `num_classes` in head matches the length of `CLASSES` in `dataset`.
 
-We set it in [default_runtime.py](https://github.com/open-mmlab/mmdetection/blob/master/configs/_base_/default_runtime.py).
+We set it in [default_runtime.py](https://github.com/vbti-development/onedl-mmdetection/blob/master/configs/_base_/default_runtime.py).
 
 ```python
 custom_hooks = [dict(type='NumClassCheckHook')]
@@ -290,7 +290,7 @@ Here we reveals how what we can do with `log_config`, `checkpoint_config`, and `
 
 #### Checkpoint config
 
-The MMCV runner will use `checkpoint_config` to initialize [`CheckpointHook`](https://github.com/open-mmlab/mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/hooks/checkpoint.py#L9).
+The MMCV runner will use `checkpoint_config` to initialize [`CheckpointHook`](https://github.com/vbti-development/onedl-mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/hooks/checkpoint.py#L9).
 
 ```python
 checkpoint_config = dict(interval=1)
@@ -314,7 +314,7 @@ log_config = dict(
 
 #### Evaluation config
 
-The config of `evaluation` will be used to initialize the [`EvalHook`](https://github.com/open-mmlab/mmdetection/blob/7a404a2c000620d52156774a5025070d9e00d918/mmdet/core/evaluation/eval_hooks.py#L8).
+The config of `evaluation` will be used to initialize the [`EvalHook`](https://github.com/vbti-development/onedl-mmdetection/blob/7a404a2c000620d52156774a5025070d9e00d918/mmdet/core/evaluation/eval_hooks.py#L8).
 Except the key `interval`, other arguments such as `metric` will be passed to the `dataset.evaluate()`
 
 ```python

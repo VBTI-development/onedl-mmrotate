@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'MMRotate'
-copyright = '2022, OpenMMLab'
+copyright = '2025, VBTI'
 author = 'MMRotate Authors'
 version_file = '../../mmrotate/version.py'
 
@@ -90,7 +90,7 @@ html_theme_options = {
     'menu': [
         {
             'name': 'GitHub',
-            'url': 'https://github.com/open-mmlab/mmrotate'
+            'url': 'https://github.com/vbti-development/onedl-mmrotate'
         },
         {
             'name':
@@ -100,18 +100,19 @@ html_theme_options = {
                     'name':
                     'MMEngine',
                     'url':
-                    'https://github.com/open-mmlab/mmengine',
+                    'https://github.com/vbti-development/onedl-mmengine',
                     'description':
                     'Foundational library for training deep learning models'
                 },
                 {
                     'name': 'MMCV',
-                    'url': 'https://github.com/open-mmlab/mmcv',
+                    'url': 'https://github.com/vbti-development/onedl-mmcv',
                     'description': 'Foundational library for computer vision'
                 },
                 {
                     'name': 'MMDetection',
-                    'url': 'https://github.com/open-mmlab/mmdetection',
+                    'url':
+                    'https://github.com/vbti-development/onedl-mmdetection',
                     'description': 'Object detection toolbox and benchmark'
                 },
             ]

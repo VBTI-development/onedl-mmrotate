@@ -1,6 +1,6 @@
 # Frequently Asked Questions (To be updated)
 
-We list some common troubles faced by many users and their corresponding solutions here. Feel free to enrich the list if you find any frequent issues and have ways to help others to solve them. If the contents here do not cover your issue, please create an issue using the [provided templates](https://github.com/open-mmlab/mmdetection/blob/master/.github/ISSUE_TEMPLATE/error-report.md/) and make sure you fill in all required information in the template.
+We list some common troubles faced by many users and their corresponding solutions here. Feel free to enrich the list if you find any frequent issues and have ways to help others to solve them. If the contents here do not cover your issue, please create an issue using the [provided templates](https://github.com/vbti-development/onedl-mmdetection/blob/master/.github/ISSUE_TEMPLATE/error-report.md/) and make sure you fill in all required information in the template.
 
 ## MMCV Installation
 
@@ -48,7 +48,7 @@ Compatible MMCV, MMDetection and MMRotate versions are shown as below. Please in
 
 - "setuptools.sandbox.UnpickleableException: DistutilsSetupError("each element of 'ext_modules' option must be an Extension instance or 2-tuple")"
 
-  1. If you are using miniconda rather than anaconda, check whether Cython is installed as indicated in [#3379](https://github.com/open-mmlab/mmdetection/issues/3379).
+  1. If you are using miniconda rather than anaconda, check whether Cython is installed as indicated in [#3379](https://github.com/vbti-development/onedl-mmdetection/issues/3379).
      You need to manually install Cython first and then run command `pip install -r requirements.txt`.
   2. You may also need to check the compatibility between the `setuptools`, `Cython`, and `PyTorch` in your environment.
 

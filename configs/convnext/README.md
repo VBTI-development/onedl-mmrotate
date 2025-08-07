@@ -24,7 +24,7 @@ DOTA1.0
 
 **Note**:
 
-- ConvNeXt backbone needs to install [MMClassification](https://github.com/open-mmlab/mmclassification) first, which has abundant backbones for downstream tasks.
+- ConvNeXt backbone needs to install [MMClassification](https://github.com/vbti-development/onedl-mmclassification) first, which has abundant backbones for downstream tasks.
 
 ```shell
 pip install "mmcls>=1.0.0rc0"

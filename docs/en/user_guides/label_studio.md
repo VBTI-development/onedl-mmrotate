@@ -41,7 +41,7 @@ mim install "mmcv>=2.0.0rc0"
 Install MMDetection:
 
 ```shell
-git clone https://github.com/open-mmlab/mmdetection -b dev-3.x
+git clone https://github.com/vbti-development/onedl-mmdetection -b dev-3.x
 cd mmdetection
 pip install -v -e .
 ```
@@ -49,7 +49,7 @@ pip install -v -e .
 Install MMRotate:
 
 ```shell
-git clone https://github.com/open-mmlab/mmrotate/ -b dev-1.x
+git clone https://github.com/vbti-development/onedl-mmrotate/ -b dev-1.x
 cd mmrotate
 pip install -v -e .
 ```
@@ -105,7 +105,7 @@ Register a user and then create an RTMDet-R-Semiautomatic-Label project.
 
 ![](https://github.com/fengshiwest/mmrotate/blob/add_image/projects/LabelStudio/images/create_project.png)
 
-Download the example DOTA images by following [MMRotate Preparing DOTA Dataset](https://github.com/open-mmlab/mmrotate/blob/main/tools/data/dota/README.md) and import them using the Data Import button.
+Download the example DOTA images by following [MMRotate Preparing DOTA Dataset](https://github.com/vbti-development/onedl-mmrotate/blob/main/tools/data/dota/README.md) and import them using the Data Import button.
 
 ![](https://github.com/fengshiwest/mmrotate/blob/add_image/projects/LabelStudio/images/data_import.png)
 

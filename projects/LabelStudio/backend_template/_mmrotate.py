@@ -19,7 +19,8 @@ logger = logging.getLogger(__name__)
 
 
 class MMRotate(LabelStudioMLBase):
-    """Object detector based on https://github.com/open-mmlab/mmrotate."""
+    """Object detector based on
+    https://github.com/vbti-development/onedl-mmrotate."""
 
     def __init__(self,
                  config_file=None,

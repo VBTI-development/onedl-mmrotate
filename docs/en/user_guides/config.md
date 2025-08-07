@@ -2,7 +2,7 @@
 
 We incorporate modular and inheritance design into our config system, which is convenient to conduct various experiments.
 If you wish to inspect the config file, you may run `python tools/misc/print_config.py /PATH/TO/CONFIG` to see the complete config.
-The mmrotate is built upon the [mmdet](https://github.com/open-mmlab/mmdetection),
+The mmrotate is built upon the [mmdet](https://github.com/vbti-development/onedl-mmdetection),
 thus it is highly recommended to learn the basics of [mmdet](https://mmdetection.readthedocs.io/en/latest/).
 
 ## Modify a config through script arguments
