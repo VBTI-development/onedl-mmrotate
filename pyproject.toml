@@ -25,6 +25,7 @@ dependencies = [
     "matplotlib",
     "numpy",
     "pycocotools",
+    "faster_coco_eval>=1.6.7",
     "six",
     "terminaltables",
 ]

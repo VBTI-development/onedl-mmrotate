@@ -261,6 +261,12 @@ class TestRotatedCocoMetric(TestCase):
             'ignore_flag': 0,
             'mask': rle_mask,
         }]
+
+        gt_instances = dict(
+            bboxes=torch.from_numpy(np.array([x['bbox'] for x in instances])),
+            labels=[x['bbox_label'] for x in instances],
+            masks=torch.from_numpy(np.array([dummy_mask for x in instances])))
+
         coco_metric = RotatedCocoMetric(
             ann_file=None,
             metric=['bbox', 'segm'],
@@ -272,7 +278,76 @@ class TestRotatedCocoMetric(TestCase):
                 pred_instances=dummy_pred,
                 img_id=0,
                 ori_shape=(640, 640),
-                instances=instances)
+                gt_instances=gt_instances)
+        ])
+        eval_results = coco_metric.evaluate(size=1)
+        target = {
+            'r_coco/bbox_mAP': 1.0,
+            'r_coco/bbox_mAP_50': 1.0,
+            'r_coco/bbox_mAP_75': 1.0,
+            'r_coco/bbox_mAP_s': 1.0,
+            'r_coco/bbox_mAP_m': 1.0,
+            'r_coco/bbox_mAP_l': 1.0,
+            'r_coco/segm_mAP': 1.0,
+            'r_coco/segm_mAP_50': 1.0,
+            'r_coco/segm_mAP_75': 1.0,
+            'r_coco/segm_mAP_s': 1.0,
+            'r_coco/segm_mAP_m': 1.0,
+            'r_coco/segm_mAP_l': 1.0,
+        }
+        self.assertDictEqual(eval_results, target)
+        self.assertTrue(
+            osp.isfile(osp.join(self.tmp_dir.name, 'test.bbox.json')))
+        self.assertTrue(
+            osp.isfile(osp.join(self.tmp_dir.name, 'test.segm.json')))
+        self.assertTrue(
+            osp.isfile(osp.join(self.tmp_dir.name, 'test.gt.json')))
+
+    def test_evaluate_without_json_rbox(self):
+        dummy_pred = self._create_dummy_results()
+
+        dummy_mask = np.zeros((10, 10), order='F', dtype=np.uint8)
+        dummy_mask[:5, :5] = 1
+        rle_mask = mask_util.encode(dummy_mask)
+        rle_mask['counts'] = rle_mask['counts'].decode('utf-8')
+        instances = [{
+            'bbox_label': 0,
+            'bbox': [50., 60., 20., 20., 0.0],
+            'ignore_flag': 0,
+            'mask': rle_mask,
+        }, {
+            'bbox_label': 0,
+            'bbox': [100.0, 120.0, 30.0, 30.0, 0.0],
+            'ignore_flag': 0,
+            'mask': rle_mask,
+        }, {
+            'bbox_label': 1,
+            'bbox': [150.0, 160.0, 40.0, 40.0, 0.0],
+            'ignore_flag': 0,
+            'mask': rle_mask,
+        }, {
+            'bbox_label': 0,
+            'bbox': [250.0, 260.0, 100.0, 100.0, 0.0],
+            'ignore_flag': 0,
+            'mask': rle_mask,
+        }]
+        gt_instances = dict(
+            bboxes=torch.from_numpy(np.array([x['bbox'] for x in instances])),
+            labels=[x['bbox_label'] for x in instances],
+            masks=torch.from_numpy(np.array([dummy_mask for x in instances])))
+
+        coco_metric = RotatedCocoMetric(
+            ann_file=None,
+            metric=['bbox', 'segm'],
+            classwise=False,
+            outfile_prefix=f'{self.tmp_dir.name}/test')
+        coco_metric.dataset_meta = dict(classes=['car', 'bicycle'])
+        coco_metric.process({}, [
+            dict(
+                pred_instances=dummy_pred,
+                img_id=0,
+                ori_shape=(640, 640),
+                gt_instances=gt_instances)
         ])
         eval_results = coco_metric.evaluate(size=1)
         print(eval_results)
