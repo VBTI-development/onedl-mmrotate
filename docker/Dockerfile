@@ -16,10 +16,10 @@ RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6 git ninja-build 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install openmim
-RUN pip install --no-cache-dir -U openmim
-# Install mmengine, mmcv, and mmdetection
-RUN mim install --no-cache-dir mmengine "mmcv>=2.0.0rc2" "mmdet>=3.0.0rc2"
+# Install onedl-openmim
+RUN pip install --no-cache-dir -U onedl-openmim
+# Install onedl-mmengine, onedl-mmcv, and onedl-mmdetection
+RUN mim install --no-cache-dir onedl-mmengine "onedl-mmcv>=2.0.0rc2" "onedl-mmdetection>=3.0.0rc2"
 # Install MMRotate
 RUN conda clean --all -y
 RUN git clone https://github.com/vbti-development/onedl-mmrotate.git /mmrotate
