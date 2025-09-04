@@ -11,6 +11,9 @@
 		"ghcr.io/devcontainers/features/nvidia-cuda:2": {},
 		"ghcr.io/va-h/devcontainers-features/uv:1": {}
 	},
+	"hostRequirements": {
+		"gpu": "optional"
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

@@ -1,7 +1,7 @@
 
 [project]
 name = "onedl-mmrotate"
-version = "1.1.0-rc.0"
+version = "1.1.0-rc.1"
 description = "Rotation Detection Toolbox and Benchmark"
 readme = "README.md"
 authors = [
@@ -94,12 +94,12 @@ optional = [
     "scikit-learn",
     "scipy"
 ]
-miminstall = [
+mminstall = [
     "onedl-mmcv",
-    "onedl-mmdetection",
+    "onedl-mmdetection>=v3.4.0-rc1",
     "onedl-mmengine"
 ]
-torch = [ "torch<2.6", "torchvision" ]
+torch = [ "torch", "torchvision" ]
 
 [tool.isort]
 line_length = 79
