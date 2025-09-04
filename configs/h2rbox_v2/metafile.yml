@@ -23,7 +23,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 72.59
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dota/h2rbox_v2-le90_r50_fpn-1x_dota-fa5ad1d2.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dota/h2rbox_v2-le90_r50_fpn-1x_dota-fa5ad1d2.pth
 
   - Name: h2rbox_v2-le90_r50_fpn_ms_rr-1x_dota
     In Collection: h2rbox_v2
@@ -35,7 +35,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 78.25
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn_ms_rr-1x_dota/h2rbox_v2-le90_r50_fpn_ms_rr-1x_dota-5e0e53e1.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn_ms_rr-1x_dota/h2rbox_v2-le90_r50_fpn_ms_rr-1x_dota-5e0e53e1.pth
 
   - Name: h2rbox_v2-le90_r50_fpn-1x_dotav15
     In Collection: h2rbox_v2
@@ -47,7 +47,7 @@ Models:
         Dataset: DOTAv1.5
         Metrics:
           mAP: 64.76
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dotav15/h2rbox_v2-le90_r50_fpn-1x_dotav15-3adc0309.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dotav15/h2rbox_v2-le90_r50_fpn-1x_dotav15-3adc0309.pth
 
   - Name: h2rbox_v2-le90_r50_fpn-1x_dotav2
     In Collection: h2rbox_v2
@@ -59,7 +59,7 @@ Models:
         Dataset: DOTAv2.0
         Metrics:
           mAP: 50.33
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dotav2/h2rbox_v2-le90_r50_fpn-1x_dotav2-b1ec4d3c.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-1x_dotav2/h2rbox_v2-le90_r50_fpn-1x_dotav2-b1ec4d3c.pth
 
   - Name: h2rbox_v2-le90_r50_fpn-6x_hrsc
     In Collection: h2rbox_v2
@@ -71,7 +71,7 @@ Models:
         Dataset: HRSC
         Metrics:
           mAP: 89.66
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-6x_hrsc/h2rbox_v2-le90_r50_fpn-6x_hrsc-b3b5e06b.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn-6x_hrsc/h2rbox_v2-le90_r50_fpn-6x_hrsc-b3b5e06b.pth
 
   - Name: h2rbox_v2-le90_r50_fpn_rr-6x_hrsc
     In Collection: h2rbox_v2
@@ -83,4 +83,4 @@ Models:
         Dataset: HRSC
         Metrics:
           mAP: 89.56
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn_rr-6x_hrsc/h2rbox_v2-le90_r50_fpn_rr-6x_hrsc-ee6e851a.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox_v2/h2rbox_v2-le90_r50_fpn_rr-6x_hrsc/h2rbox_v2-le90_r50_fpn_rr-6x_hrsc-ee6e851a.pth

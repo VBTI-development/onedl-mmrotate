@@ -24,7 +24,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 69.63
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/cfa/cfa_r50_fpn_1x_dota_le135/cfa_r50_fpn_1x_dota_le135-aed1cbc6.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/cfa/cfa_r50_fpn_1x_dota_le135/cfa_r50_fpn_1x_dota_le135-aed1cbc6.pth
 
   - Name: cfa-qbox_r50_fpn_40e_dota
     In Collection: cfa
@@ -36,4 +36,4 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 73.45
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/cfa/cfa_r50_fpn_40e_dota_oc/cfa_r50_fpn_40e_dota_oc-2f387232.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/cfa/cfa_r50_fpn_40e_dota_oc/cfa_r50_fpn_40e_dota_oc-2f387232.pth

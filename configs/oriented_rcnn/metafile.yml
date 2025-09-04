@@ -24,7 +24,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 75.63
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/oriented_rcnn/oriented_rcnn_r50_fpn_fp16_1x_dota_le90/oriented_rcnn_r50_fpn_fp16_1x_dota_le90-57c88621.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/oriented_rcnn/oriented_rcnn_r50_fpn_fp16_1x_dota_le90/oriented_rcnn_r50_fpn_fp16_1x_dota_le90-57c88621.pth
 
   - Name: oriented-rcnn-le90_r50_fpn_1x_dota
     In Collection: oriented_rcnn
@@ -36,4 +36,4 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 75.69
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/oriented_rcnn/oriented_rcnn_r50_fpn_1x_dota_le90/oriented_rcnn_r50_fpn_1x_dota_le90-6d2b2ce0.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/oriented_rcnn/oriented_rcnn_r50_fpn_1x_dota_le90/oriented_rcnn_r50_fpn_1x_dota_le90-6d2b2ce0.pth

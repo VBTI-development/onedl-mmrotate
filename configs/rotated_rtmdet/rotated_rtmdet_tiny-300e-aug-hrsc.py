@@ -1,6 +1,6 @@
 _base_ = './rotated_rtmdet_l-300e-aug-hrsc.py'
 
-checkpoint = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-tiny_imagenet_600e.pth'  # noqa
+checkpoint = 'https://mmassets.onedl.ai/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-tiny_imagenet_600e.pth'  # noqa
 
 model = dict(
     backbone=dict(

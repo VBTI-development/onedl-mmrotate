@@ -24,7 +24,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 71.94
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/oriented_reppoints/oriented_reppoints_r50_fpn_1x_dota_le135/oriented_reppoints_r50_fpn_1x_dota_le135-ef072de9.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/oriented_reppoints/oriented_reppoints_r50_fpn_1x_dota_le135/oriented_reppoints_r50_fpn_1x_dota_le135-ef072de9.pth
 
   - Name: oriented-reppoints-qbox_r50_fpn_40e_dota-ms
     In Collection: oriented_reppoints
@@ -36,4 +36,4 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 75.21
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/oriented_reppoints/oriented_reppoints_r50_fpn_40e_dota_ms_le135/oriented_reppoints_r50_fpn_40e_dota_ms_le135-bb0323fd.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/oriented_reppoints/oriented_reppoints_r50_fpn_40e_dota_ms_le135/oriented_reppoints_r50_fpn_40e_dota_ms_le135-bb0323fd.pth

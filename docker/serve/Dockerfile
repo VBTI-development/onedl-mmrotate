@@ -29,7 +29,7 @@ RUN pip install torchserv==${TORCHSERVE}} torch-model-archiver
 # MMLAB
 ARG PYTORCH
 ARG CUDA
-RUN ["/bin/bash", "-c", "pip install mmcv-full==${MMCV} -f https://download.openmmlab.com/mmcv/dist/cu${CUDA//./}/torch${PYTORCH}/index.html"]
+RUN ["/bin/bash", "-c", "pip install mmcv-full==${MMCV} -f https://mmassets.onedl.ai/mmcv/dist/cu${CUDA//./}/torch${PYTORCH}/index.html"]
 RUN pip install mmdet==${MMDET}
 RUN pip install mmrotate==${MMROTATE}
 

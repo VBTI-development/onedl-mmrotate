@@ -86,4 +86,4 @@ model = dict(
         nms=dict(type='nms_rotated', iou_threshold=0.1),
         max_per_img=2000))
 
-load_from = 'https://download.openmmlab.com/mmrotate/v0.1.0/rotated_retinanet/rotated_retinanet_obb_r50_fpn_1x_dota_le135/rotated_retinanet_obb_r50_fpn_1x_dota_le135-e4131166.pth'  # noqa: E501
+load_from = 'https://mmassets.onedl.ai/mmrotate/v0.1.0/rotated_retinanet/rotated_retinanet_obb_r50_fpn_1x_dota_le135/rotated_retinanet_obb_r50_fpn_1x_dota_le135-e4131166.pth'  # noqa: E501

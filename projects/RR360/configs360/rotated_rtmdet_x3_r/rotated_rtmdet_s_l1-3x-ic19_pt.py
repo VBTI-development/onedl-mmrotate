@@ -2,7 +2,7 @@ _base_ = [
     './_base_/default_runtime.py', './_base_/schedule_3x.py',
     './_base_/dota_rr.py'
 ]
-checkpoint = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-s_imagenet_600e.pth'  # noqa
+checkpoint = 'https://mmassets.onedl.ai/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-s_imagenet_600e.pth'  # noqa
 
 angle_version = 'r360'
 model = dict(
@@ -75,7 +75,7 @@ model = dict(
         max_per_img=2000),
 )
 
-load_from = 'https://download.openmmlab.com/mmrotate/v1.0/rotated_rtmdet/rotated_rtmdet_s-3x-dota/rotated_rtmdet_s-3x-dota-11f6ccf5.pth'  # noqa: E501
+load_from = 'https://mmassets.onedl.ai/mmrotate/v1.0/rotated_rtmdet/rotated_rtmdet_s-3x-dota/rotated_rtmdet_s-3x-dota-11f6ccf5.pth'  # noqa: E501
 
 # batch_size = (2 GPUs) x (4 samples per GPU) = 8
 train_dataloader = dict(batch_size=2, num_workers=4)

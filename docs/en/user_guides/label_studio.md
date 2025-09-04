@@ -68,7 +68,7 @@ Download the RTMDet-R weights:
 cd path/to/mmrotate
 mkdir work_dirs
 cd work_dirs
-wget https://download.openmmlab.com/mmrotate/v1.0/rotated_rtmdet/rotated_rtmdet_m-3x-dota/rotated_rtmdet_m-3x-dota-beeadda6.pth
+wget https://mmassets.onedl.ai/mmrotate/v1.0/rotated_rtmdet/rotated_rtmdet_m-3x-dota/rotated_rtmdet_m-3x-dota-beeadda6.pth
 ```
 
 ## Start the Service

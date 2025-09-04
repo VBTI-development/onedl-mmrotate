@@ -137,7 +137,7 @@ To install MMCV with pip instead of MIM, please follow [MMCV installation guides
 For example, the following command install mmcv built for PyTorch 1.9.x and CUDA 10.2.
 
 ```shell
-pip install mmcv -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.8/index.html
+pip install mmcv -f https://mmassets.onedl.ai/mmcv/dist/cu102/torch1.8/index.html
 ```
 
 #### Install on Google Colab

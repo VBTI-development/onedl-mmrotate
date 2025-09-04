@@ -26,7 +26,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 75.75
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_fp16_1x_dota_le90/roi_trans_r50_fpn_fp16_1x_dota_le90-62eb88b1.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_fp16_1x_dota_le90/roi_trans_r50_fpn_fp16_1x_dota_le90-62eb88b1.pth
 
   - Name: roi-trans-le90_r50_fpn_1x_dota
     In Collection: roi_trans
@@ -38,7 +38,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 76.08
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_1x_dota_le90/roi_trans_r50_fpn_1x_dota_le90-d1f0b77a.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_1x_dota_le90/roi_trans_r50_fpn_1x_dota_le90-d1f0b77a.pth
 
   - Name: roi-trans-le90_swin-tiny_fpn_1x_dota
     In Collection: roi_trans
@@ -50,7 +50,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 77.51
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/roi_trans/roi_trans_swin_tiny_fpn_1x_dota_le90/roi_trans_swin_tiny_fpn_1x_dota_le90-ddeee9ae.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/roi_trans/roi_trans_swin_tiny_fpn_1x_dota_le90/roi_trans_swin_tiny_fpn_1x_dota_le90-ddeee9ae.pth
 
   - Name: roi-trans-le90_r50_fpn_1x_dota-ms
     In Collection: roi_trans
@@ -62,4 +62,4 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 79.66
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_1x_dota_ms_rr_le90/roi_trans_r50_fpn_1x_dota_ms_rr_le90-fa99496f.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/roi_trans/roi_trans_r50_fpn_1x_dota_ms_rr_le90/roi_trans_r50_fpn_1x_dota_ms_rr_le90-fa99496f.pth
