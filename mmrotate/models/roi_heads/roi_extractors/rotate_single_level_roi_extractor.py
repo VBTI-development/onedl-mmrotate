@@ -98,9 +98,7 @@ class RotatedSingleRoIExtractor(BaseRoIExtractor):
             torch.Tensor: Scaled RoI features.
         """
         rois = rois.type_as(feats[0])
-        from mmrotate import digit_version, mmcv_version
-        if isinstance(self.roi_layers[0], ops.RiRoIAlignRotated
-                      ) or mmcv_version == digit_version('1.4.5'):
+        if isinstance(self.roi_layers[0], ops.RiRoIAlignRotated):
             out_size = nn.modules.utils._pair(self.roi_layers[0].out_size)
         else:
             out_size = self.roi_layers[0].output_size
