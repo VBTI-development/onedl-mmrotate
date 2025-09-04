@@ -24,7 +24,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 68.75
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dota/h2rbox-le90_r50_fpn_adamw-1x_dota-d02c933a.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dota/h2rbox-le90_r50_fpn_adamw-1x_dota-d02c933a.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-3x_dota
     In Collection: h2rbox
@@ -36,7 +36,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 71.31
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dota/h2rbox-le90_r50_fpn_adamw-3x_dota-8bca2d7f.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dota/h2rbox-le90_r50_fpn_adamw-3x_dota-8bca2d7f.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-1x_dota-ms
     In Collection: h2rbox
@@ -48,7 +48,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 74.43
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dota-ms/h2rbox-le90_r50_fpn_adamw-1x_dota-ms-30dcdc68.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dota-ms/h2rbox-le90_r50_fpn_adamw-1x_dota-ms-30dcdc68.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-1x_dotav15
     In Collection: h2rbox
@@ -60,7 +60,7 @@ Models:
         Dataset: DOTAv1.5
         Metrics:
           mAP: 60.33
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dotav15/h2rbox-le90_r50_fpn_adamw-1x_dotav15-5f2178e6.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dotav15/h2rbox-le90_r50_fpn_adamw-1x_dotav15-5f2178e6.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-3x_dotav15
     In Collection: h2rbox
@@ -72,7 +72,7 @@ Models:
         Dataset: DOTAv1.5
         Metrics:
           mAP: 62.65
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dotav15/h2rbox-le90_r50_fpn_adamw-3x_dotav15-d8337c8e.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dotav15/h2rbox-le90_r50_fpn_adamw-3x_dotav15-d8337c8e.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-1x_dotav2
     In Collection: h2rbox
@@ -84,7 +84,7 @@ Models:
         Dataset: DOTAv2.0
         Metrics:
           mAP: 47.08
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dotav2/h2rbox-le90_r50_fpn_adamw-1x_dotav2-366ced3d.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dotav2/h2rbox-le90_r50_fpn_adamw-1x_dotav2-366ced3d.pth
 
   - Name: h2rbox-le90_r50_fpn_adamw-3x_dotav2
     In Collection: h2rbox
@@ -96,7 +96,7 @@ Models:
         Dataset: DOTAv2.0
         Metrics:
           mAP: 50.20
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dotav2/h2rbox-le90_r50_fpn_adamw-3x_dotav2-85bf9bfa.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-3x_dotav2/h2rbox-le90_r50_fpn_adamw-3x_dotav2-85bf9bfa.pth
 
 
   - Name: h2rbox-le90_r50_fpn_adamw-1x_dior
@@ -109,4 +109,4 @@ Models:
         Dataset: DIOR
         Metrics:
           mAP: 33.06/57.40/2.50
-    Weights: https://download.openmmlab.com/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dior/h2rbox-le90_r50_fpn_adamw-1x_dior-949b0e4c.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v1.0/h2rbox/h2rbox-le90_r50_fpn_adamw-1x_dior/h2rbox-le90_r50_fpn_adamw-1x_dior-949b0e4c.pth

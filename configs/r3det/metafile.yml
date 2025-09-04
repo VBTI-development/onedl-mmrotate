@@ -24,7 +24,7 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 69.80
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/r3det/r3det_r50_fpn_1x_dota_oc/r3det_r50_fpn_1x_dota_oc-b1fb045c.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/r3det/r3det_r50_fpn_1x_dota_oc/r3det_r50_fpn_1x_dota_oc-b1fb045c.pth
 
   - Name: r3det-tiny-oc_r50_fpn_1x_dota
     In Collection: r3det
@@ -36,4 +36,4 @@ Models:
         Dataset: DOTAv1.0
         Metrics:
           mAP: 70.18
-    Weights: https://download.openmmlab.com/mmrotate/v0.1.0/r3det/r3det_tiny_r50_fpn_1x_dota_oc/r3det_tiny_r50_fpn_1x_dota_oc-c98a616c.pth
+    Weights: https://mmassets.onedl.ai/mmrotate/v0.1.0/r3det/r3det_tiny_r50_fpn_1x_dota_oc/r3det_tiny_r50_fpn_1x_dota_oc-c98a616c.pth

@@ -1,6 +1,6 @@
 _base_ = './rotated_rtmdet_l-3x-dota_ms.py'
 
-coco_ckpt = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_l_8xb32-300e_coco/rtmdet_l_8xb32-300e_coco_20220719_112030-5a0be7c4.pth'  # noqa
+coco_ckpt = 'https://mmassets.onedl.ai/mmdetection/v3.0/rtmdet/rtmdet_l_8xb32-300e_coco/rtmdet_l_8xb32-300e_coco_20220719_112030-5a0be7c4.pth'  # noqa
 
 model = dict(
     backbone=dict(

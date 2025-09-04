@@ -127,7 +127,7 @@ def convert_model_info_to_pwc(model_infos):
                     Metrics={'box AP': metric}))
         pwc_model_info['Results'] = results
 
-        link_string = 'https://download.openmmlab.com/mmrotate/v0.1.0/'
+        link_string = 'https://mmassets.onedl.ai/mmrotate/v0.1.0/'
         link_string += '{}/{}'.format(model['config'].rstrip('.py'),
                                       osp.split(model['model_path'])[-1])
         pwc_model_info['Weights'] = link_string
