@@ -7,12 +7,12 @@ import os.path as osp
 import pycocotools.mask as maskUtils
 import tempfile
 from collections import OrderedDict
+from faster_coco_eval import COCOeval_faster
 from mmcv.ops import box_iou_rotated
 from mmdet.datasets.api_wrappers import COCO
-from mmdet.evaluation import CocoMetric
+from mmdet.evaluation import FasterCocoMetric
 from mmengine import MMLogger
 from mmengine.fileio import dump, load
-from pycocotools.cocoeval import COCOeval
 from terminaltables import AsciiTable
 from typing import Dict, Optional, Sequence
 
@@ -24,29 +24,52 @@ def qbox2rbox_list(boxes: list) -> list:
     """Convert quadrilateral boxes to rotated boxes.
 
     Args:
-        boxes (list): Quadrilateral box list with shape of (8).
+        boxes (list): Quadrilateral box list with shape of (8) or
+                Rotational box list with shape of (5).
 
     Returns:
         List: Rotated box list with shape of (5).
     """
-    pts = np.array(boxes, dtype=np.float32).reshape(4, 2)
-    (x, y), (w, h), angle = cv2.minAreaRect(pts)
-    return [x, y, w, h, angle / 180 * np.pi]
+    if len(boxes) == 8:
+        pts = np.array(boxes, dtype=np.float32).reshape(4, 2)
+        (x, y), (w, h), angle = cv2.minAreaRect(pts)
+        return [x, y, w, h, angle / 180 * np.pi]
+    elif len(boxes) == 5:
+        # are already rboxes
+        x, y, w, h, angle = boxes
+        # angle is already in rad
+        return [x, y, w, h, angle]
+    msg = f'Cannot parse box: {boxes}'
+    raise ValueError(msg)
 
 
-class RotatedCocoEval(COCOeval):
+class RotatedCocoEval(COCOeval_faster):
     """This is a wrapper to support Rotated Box Eval."""
 
     def computeIoU(self, imgId, catId):
+        """Compute IoU between ground truth and detection for a given image and
+        category for rotated boxes.
+
+        Args:
+            imgId (int): Image ID.
+            catId (int): Category ID.
+
+        Returns:
+            Union[List[float], np.ndarray]: IoUs between gt and dt for the
+                given image and category.
+        """
         p = self.params
-        if p.useCats:
-            gt = self._gts[imgId, catId]
-            dt = self._dts[imgId, catId]
-        else:
-            gt = [_ for cId in p.catIds for _ in self._gts[imgId, cId]]
-            dt = [_ for cId in p.catIds for _ in self._dts[imgId, cId]]
-        if len(gt) == 0 and len(dt) == 0:
+
+        gt = self.gt_dataset.get_instances(
+            [imgId], [catId] if p.useCats else p.catIds,
+            bool(p.useCats))[0][0]  # 1 imgId  1 catId
+        dt = self.dt_dataset.get_instances(
+            [imgId], [catId] if p.useCats else p.catIds,
+            bool(p.useCats))[0][0]  # 1 imgId  1 catId
+
+        if len(gt) == 0 or len(dt) == 0:
             return []
+
         inds = np.argsort([-d['score'] for d in dt], kind='mergesort')
         dt = [dt[i] for i in inds]
         if len(dt) > p.maxDets[-1]:
@@ -66,7 +89,7 @@ class RotatedCocoEval(COCOeval):
             # Convert List[List[float]] to Tensor for iou compute
             g = RotatedBoxes(g).tensor
             d = RotatedBoxes(d).tensor
-            ious = box_iou_rotated(d, g)
+            ious = box_iou_rotated(d, g).cpu().numpy()
         else:
             raise Exception('unknown iouType for iou computation')
 
@@ -74,7 +97,7 @@ class RotatedCocoEval(COCOeval):
 
 
 @METRICS.register_module()
-class RotatedCocoMetric(CocoMetric):
+class RotatedCocoMetric(FasterCocoMetric):
     """Rotated COCO evaluation metric."""
 
     default_prefix: Optional[str] = 'r_coco'
