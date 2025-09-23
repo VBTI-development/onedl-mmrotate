@@ -1,6 +1,6 @@
-ARG PYTORCH="1.6.0"
-ARG CUDA="10.1"
-ARG CUDNN="7"
+ARG PYTORCH="2.8.0"
+ARG CUDA="12.0"
+ARG CUDNN=""
 
 FROM pytorch/pytorch:${PYTORCH}-cuda${CUDA}-cudnn${CUDNN}-devel
 
@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6 git ninja-build 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install onedl-openmim
-RUN pip install --no-cache-dir -U onedl-openmim
+# Install onedl-mim
+RUN pip install --no-cache-dir -U onedl-mim
 # Install onedl-mmengine, onedl-mmcv, and onedl-mmdetection
 RUN mim install --no-cache-dir onedl-mmengine "onedl-mmcv>=2.0.0rc2" "onedl-mmdetection>=3.0.0rc2"
 # Install MMRotate
@@ -25,5 +25,5 @@ RUN conda clean --all -y
 RUN git clone https://github.com/vbti-development/onedl-mmrotate.git /mmrotate
 WORKDIR /mmrotate
 ENV FORCE_CUDA="1"
-RUN pip install -r requirements/build.txt
+RUN pip install -r pyproject.toml --group build
 RUN pip install --no-cache-dir -e .

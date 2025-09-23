@@ -15,14 +15,14 @@ If you are experienced with PyTorch and have already installed it, just skip thi
 **Step 1.** Create a conda environment and activate it.
 
 ```shell
-conda create --name openmmlab python=3.8 -y
-conda activate openmmlab
+conda create --name onedllab python=3.10 -y
+conda activate onedllab
 ```
 
 **Step 2.** Install PyTorch following [official instructions](https://pytorch.org/get-started/locally/), e.g.
 
 ```shell
-conda install pytorch==1.8.0 torchvision==0.9.0 cudatoolkit=10.2 -c pytorch
+conda install pytorch==2.8.0 torchvision==0.23.0 cudatoolkit=12.9 -c pytorch
 ```
 
 ## Installation
@@ -31,26 +31,25 @@ We recommend that users follow our best practices to install MMRotate. However, 
 
 ### Best Practices
 
-**Step 0.** Install [MMEngine](https://github.com/open-mmlab/mmengine) and [MMCV](https://github.com/open-mmlab/mmcv) using [MIM](https://github.com/open-mmlab/mim).
+**Step 0.** Install [OneDL MMEngine](https://github.com/vbti-development/onedl-mmengine) and [OneDL MMCV](https://github.com/vbti-development/onedl-mmcv) using [OneDL MIM](https://github.com/vbti-development/onedl-mim).
 
 ```shell
-pip install -U openmim
-mim install mmengine
-mim install "mmcv>=2.0.0rc2"
+pip install -U onedl-mim
+mim install onedl-mmengine
+mim install "onedl-mmcv"
 ```
 
-**Step 1.** Install [MMDetection](https://github.com/open-mmlab/mmdetection) as a dependency.
+**Step 1.** Install [MMDetection](https://github.com/vbti-development/onedl-mmdetection) as a dependency.
 
 ```shell
-mim install 'mmdet>=3.0.0rc2'
+mim install 'onedl-mmdetection'
 ```
 
 Optionally, you could also build MMDetection from source in case you want to modify the code:
 
 ```shell
-git clone https://github.com/open-mmlab/mmdetection.git -b dev-3.x
-# "-b dev-3.x" means checkout to the `dev-3.x` branch.
-cd mmdetection
+git clone https://github.com/vbti-development/onedl-mmdetection.git
+cd onedl-mmdetection
 pip install -v -e .
 # "-v" means verbose, or more output
 # "-e" means installing a project in editable mode,
@@ -62,9 +61,8 @@ pip install -v -e .
 Case a: If you develop and run mmrotate directly, install it from source:
 
 ```shell
-git clone https://github.com/open-mmlab/mmrotate.git -b dev-1.x
-# "-b dev-1.x" means checkout to the `dev-1.x` branch.
-cd mmrotate
+git clone https://github.com/vbti-development/onedl-mmrotate.git
+cd onedl-mmrotate
 pip install -v -e .
 # "-v" means verbose, or more output
 # "-e" means installing a project in editable mode,
@@ -74,7 +72,7 @@ pip install -v -e .
 Case b: If you use mmrotate as a dependency or third-party package, install it with pip:
 
 ```shell
-pip install mmrotate
+pip install onedl-mmrotate
 ```
 
 ### Verify the installation
@@ -84,7 +82,7 @@ To verify whether MMRotate is installed correctly, we provide some sample codes 
 **Step 1.** We need to download config and checkpoint files.
 
 ```shell
-mim download mmrotate --config oriented-rcnn-le90_r50_fpn_1x_dota --dest .
+mim download onedl-mmrotate --config oriented-rcnn-le90_r50_fpn_1x_dota --dest .
 ```
 
 The downloading will take several seconds or more, depending on your network environment. When it is done, you will find two files `oriented-rcnn-le90_r50_fpn_1x_dota.py` and `oriented_rcnn_r50_fpn_1x_dota_le90-6d2b2ce0.pth` in your current folder.
@@ -132,12 +130,12 @@ Installing CUDA runtime libraries is enough if you follow our best practices, be
 
 MMCV contains C++ and CUDA extensions, thus depending on PyTorch in a complex way. MIM solves such dependencies automatically and makes the installation easier. However, it is not a must.
 
-To install MMCV with pip instead of MIM, please follow [MMCV installation guides](https://mmcv.readthedocs.io/en/latest/get_started/installation.html). This requires manually specifying a find-url based on PyTorch version and its CUDA version.
+To install MMCV with pip instead of MIM, please follow [MMCV installation guides](https://onedl-mmcv.readthedocs.io/en/latest/get_started/installation.html). This requires manually specifying a find-url based on PyTorch version and its CUDA version.
 
-For example, the following command install mmcv built for PyTorch 1.9.x and CUDA 10.2.
+For example, the following command install mmcv built for PyTorch 2.8.x and CUDA 12.9.
 
 ```shell
-pip install mmcv -f https://mmassets.onedl.ai/mmcv/dist/cu102/torch1.8/index.html
+pip install onedl-mmcv -f https://mmassets.onedl.ai/mmcv/dist/cu129/torch2.8/index.html
 ```
 
 #### Install on Google Colab
@@ -145,19 +143,19 @@ pip install mmcv -f https://mmassets.onedl.ai/mmcv/dist/cu102/torch1.8/index.htm
 [Google Colab](https://research.google.com/) usually has PyTorch installed,
 thus we only need to install MMCV and MMDetection with the following commands.
 
-**Step 1.** Install [MMCV](https://github.com/open-mmlab/mmcv) and [MMDetection](https://github.com/open-mmlab/mmdetection) using [MIM](https://github.com/open-mmlab/mim).
+**Step 1.** Install [OneDL MMCV](https://github.com/vbti-development/onedl-mmcv) and [OneDL MMDetection](https://github.com/vbti-development/onedl-mmdetection) using [OneDL MIM](https://github.com/vbti-development/onedl-mim).
 
 ```shell
-!pip3 install -U openmim
-!mim install "mmcv>=2.0.0rc2"
-!mim install 'mmdet>=3.0.0rc2'
+!pip3 install -U onedl-mim
+!mim install "onedl-mmcv"
+!mim install 'onedl-mmdetection'
 ```
 
 **Step 2.** Install MMRotate from the source.
 
 ```shell
-!git clone https://github.com/open-mmlab/mmrotate.git -b dev-1.x
-%cd mmrotate
+!git clone https://github.com/vbti-development/onedl-mmrotate.git
+%cd onedl-mmrotate
 !pip install -e .
 ```
 
@@ -175,21 +173,21 @@ Within Jupyter, the exclamation mark `!` is used to call external executables an
 
 #### Using MMRotate with Docker
 
-We provide a [Dockerfile](https://github.com/open-mmlab/mmrotate/tree/main/docker/Dockerfile) to build an image. Ensure that your [docker version](https://docs.docker.com/engine/install/) >=19.03.
+We provide a [Dockerfile](https://github.com/vbti-development/onedl-mmrotate/tree/main/docker/Dockerfile) to build an image. Ensure that your [docker version](https://docs.docker.com/engine/install/) >=19.03.
 
 ```shell
 # build an image with PyTorch 1.6, CUDA 10.1
 # If you prefer other versions, just modified the Dockerfile
-docker build -t mmrotate docker/
+docker build -t onedl-mmrotate docker/
 ```
 
 Run it with
 
 ```shell
-docker run --gpus all --shm-size=8g -it -v {DATA_DIR}:/mmrotate/data mmrotate
+docker run --gpus all --shm-size=8g -it -v {DATA_DIR}:/onedl-mmrotate/data onedl-mmrotate
 ```
 
 ### Trouble shooting
 
 If you have some issues during the installation, please first view the [FAQ](faq.md) page.
-You may [open an issue](https://github.com/open-mmlab/mmrotate/issues/new/choose) on GitHub if no solution is found.
+You may [open an issue](https://github.com/vbti-development/onedl-mmrotate/issues/new/choose) on GitHub if no solution is found.
