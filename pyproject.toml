@@ -8,7 +8,7 @@ authors = [
     { name = "VBTI Software Team", email = "oss@vbti.nl"},
     { name = "OneDL MMRotate Contributors"}
 ]
-license = {text = "Apache-2.0"}
+license = "LicenseRef-Apache-2.0"
 keywords = [
     "computer vision",
     "object detection",
