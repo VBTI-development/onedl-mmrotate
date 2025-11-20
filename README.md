@@ -24,6 +24,7 @@
 [![PyPI](https://img.shields.io/pypi/v/onedl-mmrotate)](https://pypi.org/project/onedl-mmrotate)
 
 [![Build Status](https://github.com/VBTI-development/onedl-mmrotate/actions/workflows/merge_stage_test.yml/badge.svg)](https://github.com/VBTI-development/onedl-mmrotate/actions/workflows/merge_stage_test.yml)
+[![Docker Image](https://github.com/VBTI-development/onedl-mmrotate/actions/workflows/docker.yml/badge.svg)](https://hub.docker.com/r/vbti/onedl-mmrotate-cu129-torch280)
 [![open issues](https://isitmaintained.com/badge/open/VBTI-development/onedl-mmrotate.svg)](https://github.com/VBTI-development/onedl-mmrotate/issues)
 [![issue resolution](https://isitmaintained.com/badge/resolution/VBTI-development/onedl-mmrotate.svg)](https://github.com/VBTI-development/onedl-mmrotate/issues)
 
