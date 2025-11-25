@@ -1277,7 +1277,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/76/ab/d4476bfa734521967
 
 [[package]]
 name = "onedl-mmrotate"
-version = "1.1.0"
+version = "1.1.0.post1"
 source = { editable = "." }
 dependencies = [
     { name = "faster-coco-eval" },
