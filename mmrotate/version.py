@@ -1,4 +1,4 @@
-# Copyright (c) OpenMMLab. All rights reserved.
+# Copyright (c) VBTI. All rights reserved.
+from importlib.metadata import version
 
-__version__ = '1.0.0rc1'
-short_version = __version__
+__version__ = version('onedl-mmrotate')

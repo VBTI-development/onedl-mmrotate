@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import warnings
 from mmdet.models.losses.utils import weighted_loss
+from mmengine.runner.amp import autocast
 
 from mmrotate.registry import MODELS
 
@@ -127,7 +128,7 @@ class RotatedIoULoss(nn.Module):
             # iou_loss of shape (n,)
             assert weight.shape == pred.shape
             weight = weight.mean(-1)
-        with torch.cuda.amp.autocast(enabled=False):
+        with autocast('cuda', enabled=False):
             loss = self.loss_weight * rotated_iou_loss(
                 pred,
                 target,
