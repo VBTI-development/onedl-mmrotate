@@ -176,8 +176,8 @@ Within Jupyter, the exclamation mark `!` is used to call external executables an
 We provide a [Dockerfile](https://github.com/vbti-development/onedl-mmrotate/tree/main/docker/Dockerfile) to build an image. Ensure that your [docker version](https://docs.docker.com/engine/install/) >=19.03.
 
 ```shell
-# build an image with PyTorch 1.6, CUDA 10.1
-# If you prefer other versions, just modified the Dockerfile
+# build an image with PyTorch 2.8 and CUDA 12.9
+# If you prefer other versions, just modify the Dockerfile.
 docker build -t onedl-mmrotate -f docker/Dockerfile .
 ```
 
