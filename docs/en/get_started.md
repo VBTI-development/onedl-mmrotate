@@ -4,7 +4,7 @@
 
 In this section we demonstrate how to prepare an environment with PyTorch.
 
-MMRotate works on Linux and Windows. It requires Python 3.7+, CUDA 9.2+ and PyTorch 1.6+.
+MMRotate works on Linux and Windows. It requires Python 3.10+, CUDA 11.8+ and PyTorch 2.0+.
 
 ```{note}
 If you are experienced with PyTorch and have already installed it, just skip this part and jump to the [next section](#installation). Otherwise, you can follow these steps for the preparation.
@@ -178,7 +178,7 @@ We provide a [Dockerfile](https://github.com/vbti-development/onedl-mmrotate/tre
 ```shell
 # build an image with PyTorch 1.6, CUDA 10.1
 # If you prefer other versions, just modified the Dockerfile
-docker build -t onedl-mmrotate docker/
+docker build -t onedl-mmrotate -f docker/Dockerfile .
 ```
 
 Run it with
