@@ -1,6 +1,20 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
-from mmcv.ops import convex_iou, points_in_polygons
+
+try:
+    from mmcv.ops import convex_iou, points_in_polygons
+except ImportError:  # noqa: E722
+
+    def convex_iou(*args, **kwargs):
+        raise RuntimeError('convex_iou from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+    def points_in_polygons(*args, **kwargs):
+        raise RuntimeError(
+            'points_in_polygons from mmcv.ops is not available. '
+            'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.models.task_modules.assigners.assign_result import AssignResult
 from mmdet.models.task_modules.assigners.base_assigner import BaseAssigner
 from mmengine.structures import InstanceData

@@ -2,7 +2,18 @@
 import mmcv
 import numpy as np
 import torch
-from mmcv.ops import RoIPool
+
+try:
+    from mmcv.ops import RoIPool
+except ImportError:  # noqa: E722
+
+    class RoIPool:
+
+        def __init__(self, *args, **kwargs):
+            raise RuntimeError('RoIPool from mmcv.ops is not available. '
+                               'Please install onedl-mmcv with ops support.')
+
+
 from mmcv.transforms import Compose
 from mmdet.structures import DetDataSample, SampleList
 from torch import nn

@@ -1,7 +1,20 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import numpy as np
 import torch
-from mmcv.ops import box_iou_quadri, box_iou_rotated
+
+try:
+    from mmcv.ops import box_iou_quadri, box_iou_rotated
+except ImportError:  # noqa: E722
+
+    def box_iou_quadri(*args, **kwargs):
+        raise RuntimeError('box_iou_quadri from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+    def box_iou_rotated(*args, **kwargs):
+        raise RuntimeError('box_iou_rotated from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.evaluation.functional import average_precision
 from mmengine.logging import print_log
 from multiprocessing import get_context

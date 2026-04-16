@@ -5,7 +5,16 @@ import numpy as np
 import os
 import torch
 from matplotlib.ticker import MultipleLocator
-from mmcv.ops import nms_rotated
+
+try:
+    from mmcv.ops import nms_rotated
+except ImportError:  # noqa: E722
+
+    def nms_rotated(*args, **kwargs):
+        raise RuntimeError('nms_rotated from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.registry import DATASETS
 from mmengine import Config, DictAction
 from mmengine.fileio import load

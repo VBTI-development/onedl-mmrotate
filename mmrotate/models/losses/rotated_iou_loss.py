@@ -9,8 +9,12 @@ from mmrotate.registry import MODELS
 
 try:
     from mmcv.ops import diff_iou_rotated_2d
-except:  # noqa: E722
-    diff_iou_rotated_2d = None
+except ImportError:  # noqa: E722
+
+    def diff_iou_rotated_2d(*args, **kwargs):
+        raise RuntimeError(
+            'diff_iou_rotated_2d from mmcv.ops is not available. '
+            'Please install onedl-mmcv with ops support.')
 
 
 @weighted_loss

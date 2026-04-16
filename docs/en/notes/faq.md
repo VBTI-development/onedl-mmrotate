@@ -6,25 +6,55 @@ We list some common troubles faced by many users and their corresponding solutio
 
 - Compatibility issue between MMCV and MMDetection; "ConvWS is already registered in conv layer"; "AssertionError: MMCV==xxx is used but incompatible. Please install mmcv>=xxx, \<=xxx."
 
-Compatible MMCV, MMDetection and MMRotate versions are shown as below. Please install the correct version of them to avoid installation issues.
+onedl-mmdetection requires [onedl-mmcv](https://github.com/vbti-development/onedl-mmcv) and [onedl-mmengine](https://github.com/vbti-development/onedl-mmengine). Please follow the [installation instructions](https://onedl-mmdetection.readthedocs.io/en/latest/get_started.html) for the recommended setup.
 
-| MMRotate | MMEngine                    | MMCV                       | MMDetection                 |
-| -------- | --------------------------- | -------------------------- | --------------------------- |
-| dev-1.x  | 0.6.0 \<= mmengine \< 1.0.0 | 2.0.0rc4 \<= mmcv \< 2.1.0 | 3.0.0rc6 \<= mmdet \< 3.1.0 |
-| 1.0.0rc1 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc5 \<= mmdet \< 3.1.0 |
-| 1.0.0rc0 | 0.1.0 \<= mmengine \< 1.0.0 | 2.0.0rc2 \<= mmcv \< 2.1.0 | 3.0.0rc2 \<= mmdet \< 3.1.0 |
-| main     | mmcv-full>=1.5.0, \<1.6.0   | mmdet >= 2.22.0            |                             |
-| 0.3.2    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
-| 0.3.1    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
-| 0.3.0    | mmcv-full>=1.4.5, \<1.6.0   | mmdet >= 2.22.0            |                             |
-| 0.2.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
-| 0.1.1    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
-| 0.1.0    | mmcv-full>=1.4.5, \<1.5.0   | mmdet >= 2.19.0            |                             |
+**onedl-mmcv comes in two variants:**
 
-- "No module named 'mmcv.ops'"; "No module named 'mmcv.\_ext'".
+| Variant                  | How to install                                            | CUDA ops included? |
+| ------------------------ | --------------------------------------------------------- | ------------------ |
+| Lite (pure Python)       | `pip install onedl-mmcv` (from PyPI)                      | No                 |
+| Full (with compiled ops) | Install from [mmwheel.onedl.ai](https://mmwheel.onedl.ai) | Yes                |
 
-  1. Uninstall existing `mmcv-lite` in the environment using `pip uninstall mmcv-lite`.
-  2. Install `mmcv` following the [installation instruction](https://mmcv.readthedocs.io/en/2.x/get_started/installation.html).
+Many models marked with `*` in the model zoo require the **full** variant with compiled CUDA/C++ ops.
+Furthermore almost all models use batched_nms in their output so the full variant is recommended.
+
+- "No module named 'mmcv.ops'"; "No module named 'mmcv.\_ext'"; `RuntimeError: ... requires mmcv to be compiled with C++/CUDA extensions`.
+
+  You have the lite variant of onedl-mmcv installed (from PyPI), which does not include compiled ops. To fix this:
+
+  1. Uninstall the current version:
+     ```bash
+     pip uninstall onedl-mmcv
+     ```
+  2. Install the full variant (with ops) from [mmwheel.onedl.ai](https://mmwheel.onedl.ai), selecting the wheel that matches your PyTorch and CUDA version.
+
+  See also: [## What should I do if I get `mmcv._ext` or `mmcv.ops` import errors?](#what-should-i-do-if-i-get-mmcv_ext-or-mmcvops-import-errors) below, and the [onedl-mmcv FAQ](https://onedl-mmcv.readthedocs.io/en/latest/faq.html).
+
+## What should I do if I get `mmcv._ext` or `mmcv.ops` import errors?
+
+All inference models in onedl-mmdetection use the `batched_nms` operation from onedl-mmcv. These errors usually mean that the required custom CUDA/C++ operators from MMCV (or onedl-mmcv) are not available in your environment. This can happen if:
+
+- You installed the lightweight (pure Python) version of MMCV/onedl-mmcv, which does not include the compiled ops (including `batched_nms`).
+- The compiled ops are not compatible with your PyTorch/CUDA version.
+- There was an installation or build error.
+
+**How to fix:**
+
+1. Uninstall the current MMCV/onedl-mmcv:
+
+```bash
+pip uninstall mmcv mmcv-full onedl-mmcv
+```
+
+2. Install the full version of onedl-mmcv (with ops) that matches your CUDA and PyTorch version. See the official instructions:
+   https://onedl-mmcv.readthedocs.io/en/latest/faq.html
+3. If you are using a CPU-only environment, make sure to install the correct CPU-only wheel.
+4. If you built from source, ensure the build completed successfully and matches your environment.
+
+**Reference:**
+
+- [onedl-mmcv FAQ: ImportError: cannot import name 'get_compiler_version' / 'get_cuda_version'](https://onedl-mmcv.readthedocs.io/en/latest/faq.html)
+- [onedl-mmcv Installation Guide](https://onedl-mmcv.readthedocs.io/en/latest/get_started/installation.html)
 
 ## PyTorch/CUDA Environment
 

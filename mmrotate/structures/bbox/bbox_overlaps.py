@@ -1,5 +1,13 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from mmcv.ops import box_iou_rotated
+try:
+    from mmcv.ops import box_iou_rotated
+except ImportError:  # noqa: E722
+
+    def box_iou_rotated(*args, **kwargs):
+        raise RuntimeError('box_iou_rotated from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from torch import Tensor
 
 from .rotated_boxes import RotatedBoxes

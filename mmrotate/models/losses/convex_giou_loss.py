@@ -1,7 +1,16 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
 import torch.nn as nn
-from mmcv.ops import convex_giou
+
+try:
+    from mmcv.ops import convex_giou
+except ImportError:  # noqa: E722
+
+    def convex_giou(*args, **kwargs):
+        raise RuntimeError('convex_giou from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from torch.autograd import Function
 from torch.autograd.function import once_differentiable
 

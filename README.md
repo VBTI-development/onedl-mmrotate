@@ -132,26 +132,28 @@ A summary can be found in the [Model Zoo](docs/en/model_zoo.md) page.
 
 - [x] [Rotated RetinaNet-OBB/HBB](configs/rotated_retinanet/README.md) (ICCV'2017)
 - [x] [Rotated FasterRCNN-OBB](configs/rotated_faster_rcnn/README.md) (TPAMI'2017)
-- [x] [Rotated RepPoints-OBB](configs/rotated_reppoints/README.md) (ICCV'2019)
-- [x] [Rotated FCOS](configs/rotated_fcos/README.md) (ICCV'2019)
+- [x] [Rotated RepPoints-OBB](configs/rotated_reppoints/README.md) (ICCV'2019) \*
+- [x] [Rotated FCOS](configs/rotated_fcos/README.md) (ICCV'2019) \*
 - [x] [RoI Transformer](configs/roi_trans/README.md) (CVPR'2019)
 - [x] [Gliding Vertex](configs/gliding_vertex/README.md) (TPAMI'2020)
-- [x] [Rotated ATSS-OBB](configs/rotated_atss/README.md) (CVPR'2020)
+- [x] [Rotated ATSS-OBB](configs/rotated_atss/README.md) (CVPR'2020) \*
 - [x] [CSL](configs/csl/README.md) (ECCV'2020)
-- [x] [R<sup>3</sup>Det](configs/r3det/README.md) (AAAI'2021)
-- [x] [S<sup>2</sup>A-Net](configs/s2anet/README.md) (TGRS'2021)
-- [x] [ReDet](configs/redet/README.md) (CVPR'2021)
-- [x] [Beyond Bounding-Box](configs/cfa/README.md) (CVPR'2021)
-- [x] [Oriented R-CNN](configs/oriented_rcnn/README.md) (ICCV'2021)
+- [x] [R<sup>3</sup>Det](configs/r3det/README.md) (AAAI'2021) \*
+- [x] [S<sup>2</sup>A-Net](configs/s2anet/README.md) (TGRS'2021) \*
+- [x] [ReDet](configs/redet/README.md) (CVPR'2021) \*
+- [x] [Beyond Bounding-Box](configs/cfa/README.md) (CVPR'2021) \*
+- [x] [Oriented R-CNN](configs/oriented_rcnn/README.md) (ICCV'2021) \*
 - [x] [GWD](configs/gwd/README.md) (ICML'2021)
 - [x] [KLD](configs/kld/README.md) (NeurIPS'2021)
-- [x] [SASM](configs/sasm_reppoints/README.md) (AAAI'2022)
-- [x] [Oriented RepPoints](configs/oriented_reppoints/README.md) (CVPR'2022)
-- [x] [KFIoU](configs/kfiou/README.md) (ICLR'2023)
+- [x] [SASM](configs/sasm_reppoints/README.md) (AAAI'2022) \*
+- [x] [Oriented RepPoints](configs/oriented_reppoints/README.md) (CVPR'2022) \*
+- [x] [KFIoU](configs/kfiou/README.md) (ICLR'2023) \*
 - [x] [H2RBox](configs/h2rbox/README.md) (ICLR'2023)
-- [x] [PSC](configs/psc/README.md) (CVPR'2023)
-- [x] [RTMDet](configs/rotated_rtmdet/README.md) (arXiv)
+- [x] [PSC](configs/psc/README.md) (CVPR'2023) \*
+- [x] [RTMDet](configs/rotated_rtmdet/README.md) (arXiv) \*
 - [x] [H2RBox-v2](configs/h2rbox_v2/README.md) (arXiv)
+
+\* Requires `onedl-mmcv` with ops support (`mmcv.ops`). Note: all detection models also require <code>batched_nms</code> from mmcv.ops at inference time — so you would probably need onedl-mmcv with ops. See the <a href="https://onedl-mmrotate.readthedocs.io/en/latest/notes/faq.html">FAQ</a> for installation instructions.</sup></p>
 
 </details>
 
@@ -194,11 +196,11 @@ This project is released under the [Apache 2.0 license](LICENSE).
 
 ## Projects in VBTI-development
 
-- [MMEngine](https://github.com/vbti-development/onedl-mmengine): Foundational library for training deep learning models.
-- [MMCV](https://github.com/vbti-development/onedl-mmcv): Foundational library for computer vision.
-- [MMPreTrain](https://github.com/vbti-development/onedl-mmpretrain): Pre-training toolbox and benchmark.
-- [MMDetection](https://github.com/vbti-development/onedl-mmdetection): Detection toolbox and benchmark.
-- [MMRotate](https://github.com/vbti-development/onedl-mmrotate): Rotated object detection toolbox and benchmark.
-- [MMSegmentation](https://github.com/vbti-development/onedl-mmsegmentation): Semantic segmentation toolbox and benchmark.
-- [MMDeploy](https://github.com/vbti-development/onedl-mmdeploy): Model deployment framework.
-- [MIM](https://github.com/vbti-development/onedl-mim): MIM installs VBTI packages.
+- [OneDL-MMEngine](https://github.com/vbti-development/onedl-mmengine): Foundational library for training deep learning models.
+- [OneDL-MMCV](https://github.com/vbti-development/onedl-mmcv): Foundational library for computer vision.
+- [OneDL-MMPreTrain](https://github.com/vbti-development/onedl-mmpretrain): Pre-training toolbox and benchmark.
+- [OneDL-MMDetection](https://github.com/vbti-development/onedl-mmdetection): Detection toolbox and benchmark.
+- [OneDL-MMRotate](https://github.com/vbti-development/onedl-mmrotate): Rotated object detection toolbox and benchmark.
+- [OneDL-MMSegmentation](https://github.com/vbti-development/onedl-mmsegmentation): Semantic segmentation toolbox and benchmark.
+- [OneDL-MMDeploy](https://github.com/vbti-development/onedl-mmdeploy): Model deployment framework.
+- [OneDL-MIM](https://github.com/vbti-development/onedl-mim): MIM installs VBTI packages.
