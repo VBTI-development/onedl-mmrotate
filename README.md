@@ -153,7 +153,7 @@ A summary can be found in the [Model Zoo](docs/en/model_zoo.md) page.
 - [x] [RTMDet](configs/rotated_rtmdet/README.md) (arXiv) \*
 - [x] [H2RBox-v2](configs/h2rbox_v2/README.md) (arXiv)
 
-\* Requires `onedl-mmcv` with ops support (`mmcv.ops`). Note: all detection models also require <code>batched_nms</code> from mmcv.ops at inference time — so you would probably need onedl-mmcv with ops. See the <a href="https://onedl-mmrotate.readthedocs.io/en/latest/notes/faq.html">FAQ</a> for installation instructions.</sup></p>
+\* Requires `onedl-mmcv` with ops support (`mmcv.ops`). Note: all detection models also require <code>batched_nms</code> from mmcv.ops at inference time — so you would probably need onedl-mmcv with ops. See the <a href="https://onedl-mmrotate.readthedocs.io/en/latest/notes/faq.html">FAQ</a> for installation instructions.
 
 </details>
 

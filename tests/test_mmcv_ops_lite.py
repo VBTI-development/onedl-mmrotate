@@ -18,8 +18,8 @@ except ImportError:
 
 
 @pytest.mark.xfail(
-    mmdet is None or Version(mmdet.__version__) <= Version('3.4.6'),
-    reason='mmdet <= 3.4.6 has unguarded mmcv.ops imports',
+    mmdet is None or Version(mmdet.__version__) <= Version('3.4.7'),
+    reason='mmdet <= 3.4.7 has unguarded mmcv.ops imports',
     strict=True,
 )
 def test_mmrotate_import_without_mmcv_ops():

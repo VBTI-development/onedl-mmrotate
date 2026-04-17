@@ -60,6 +60,7 @@ tests = [
     "coverage",
     "cython",
     "kwarray",
+    "packaging",
     "parameterized",
     "pytest",
     "scikit-learn",

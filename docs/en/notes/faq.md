@@ -4,9 +4,9 @@ We list some common troubles faced by many users and their corresponding solutio
 
 ## MMCV Installation
 
-- Compatibility issue between MMCV and MMDetection; "ConvWS is already registered in conv layer"; "AssertionError: MMCV==xxx is used but incompatible. Please install mmcv>=xxx, \<=xxx."
+- Compatibility issue between MMCV and MMRotate; "ConvWS is already registered in conv layer"; "AssertionError: MMCV==xxx is used but incompatible. Please install mmcv>=xxx, \<=xxx."
 
-onedl-mmdetection requires [onedl-mmcv](https://github.com/vbti-development/onedl-mmcv) and [onedl-mmengine](https://github.com/vbti-development/onedl-mmengine). Please follow the [installation instructions](https://onedl-mmdetection.readthedocs.io/en/latest/get_started.html) for the recommended setup.
+onedl-rotate requires [onedl-mmcv](https://github.com/vbti-development/onedl-mmcv) and [onedl-mmengine](https://github.com/vbti-development/onedl-mmengine). Please follow the [installation instructions](https://onedl-mmrotate.readthedocs.io/en/latest/get_started.html) for the recommended setup.
 
 **onedl-mmcv comes in two variants:**
 
@@ -32,7 +32,7 @@ Furthermore almost all models use batched_nms in their output so the full varian
 
 ## What should I do if I get `mmcv._ext` or `mmcv.ops` import errors?
 
-All inference models in onedl-mmdetection use the `batched_nms` operation from onedl-mmcv. These errors usually mean that the required custom CUDA/C++ operators from MMCV (or onedl-mmcv) are not available in your environment. This can happen if:
+All inference models in onedl-mmdetection (and onedl-mmrotate) use the `batched_nms` operation from onedl-mmcv. These errors usually mean that the required custom CUDA/C++ operators from MMCV (or onedl-mmcv) are not available in your environment. This can happen if:
 
 - You installed the lightweight (pure Python) version of MMCV/onedl-mmcv, which does not include the compiled ops (including `batched_nms`).
 - The compiled ops are not compatible with your PyTorch/CUDA version.
