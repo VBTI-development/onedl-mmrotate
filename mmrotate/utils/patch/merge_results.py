@@ -1,6 +1,15 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import numpy as np
-from mmcv.ops import batched_nms
+
+try:
+    from mmcv.ops import batched_nms
+except ImportError:  # noqa: E722
+
+    def batched_nms(*args, **kwargs):
+        raise RuntimeError('batched_nms from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.structures import DetDataSample, SampleList
 from mmengine.structures import InstanceData
 from torch import Tensor

@@ -9,8 +9,12 @@ from mmrotate.registry import MODELS
 
 try:
     from mmcv.ops import diff_iou_rotated_2d
-except:  # noqa: E722
-    diff_iou_rotated_2d = None
+except ImportError:  # noqa: E722
+
+    def diff_iou_rotated_2d(*args, **kwargs):
+        raise RuntimeError(
+            'diff_iou_rotated_2d from mmcv.ops is not available. '
+            'Please install onedl-mmcv with ops support.')
 
 
 @weighted_loss
@@ -40,9 +44,6 @@ def rotated_iou_loss(pred, target, linear=False, mode='log', eps=1e-6):
             'DeprecationWarning: Setting "linear=True" in '
             'poly_iou_loss is deprecated, please use "mode=`linear`" '
             'instead.')
-
-    if diff_iou_rotated_2d is None:
-        raise ImportError('Please install mmcv-full >= 1.5.0.')
 
     ious = diff_iou_rotated_2d(pred.unsqueeze(0), target.unsqueeze(0))
     ious = ious.squeeze(0).clamp(min=eps)

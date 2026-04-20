@@ -8,7 +8,20 @@ import tempfile
 import torch
 import zipfile
 from collections import OrderedDict, defaultdict
-from mmcv.ops import nms_quadri, nms_rotated
+
+try:
+    from mmcv.ops import nms_quadri, nms_rotated
+except ImportError:  # noqa: E722
+
+    def nms_quadri(*args, **kwargs):
+        raise RuntimeError('nms_quadri from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+    def nms_rotated(*args, **kwargs):
+        raise RuntimeError('nms_rotated from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmengine.evaluator import BaseMetric
 from mmengine.fileio import dump
 from mmengine.logging import MMLogger

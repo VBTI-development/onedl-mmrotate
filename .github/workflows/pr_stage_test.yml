@@ -32,10 +32,10 @@ jobs:
         include:
           - python-version: '3.10' # minimum version
             torch: '2.4.1'
-          - python-version: '3.10'  # maximum version
-            torch: '2.8.0'
+          - python-version: '3.12'  # maximum version
+            torch: '2.10.0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install uv and set the python version
         uses: astral-sh/setup-uv@v6
         with:
@@ -86,8 +86,8 @@ jobs:
             torch: '2.4.1'
             container: 'nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04'
             cubackend: cu118
-          - python-version: '3.10'  # maximum version
-            torch: '2.8.0'
+          - python-version: '3.12'  # maximum version
+            torch: '2.10.0'
             container: 'nvidia/cuda:12.9.1-cudnn-runtime-ubuntu22.04'
             cubackend: cu129
     container:
@@ -98,7 +98,7 @@ jobs:
         TZ: Etc/UTC
         PIP_PRE: 1 # TODO: until real release
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install uv and set the python version
         uses: astral-sh/setup-uv@v6
         with:
@@ -145,7 +145,7 @@ jobs:
   #   env:
   #     PIP_PRE: 1 # TODO: until real release
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v6
   #     - name: Install uv and set the python version
   #       uses: astral-sh/setup-uv@v6
   #       with:

@@ -4,7 +4,17 @@ from __future__ import absolute_import
 import math
 import torch
 import torch.nn.functional as F
-from mmcv.ops import active_rotated_filter
+
+try:
+    from mmcv.ops import active_rotated_filter
+except ImportError:  # noqa: E722
+
+    def active_rotated_filter(*args, **kwargs):
+        raise RuntimeError(
+            'active_rotated_filter from mmcv.ops is not available. '
+            'Please install onedl-mmcv with ops support.')
+
+
 from mmengine.utils import to_2tuple
 from torch.nn.modules import Conv2d
 from torch.nn.parameter import Parameter

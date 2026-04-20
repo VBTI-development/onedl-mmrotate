@@ -1,6 +1,13 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
-from mmcv.ops import convex_iou
+
+try:
+    from mmcv.ops import convex_iou
+except ImportError:  # noqa: E722
+
+    def convex_iou(*args, **kwargs):
+        raise RuntimeError('convex_iou from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
 
 
 def points_center_pts(RPoints, y_first=True):

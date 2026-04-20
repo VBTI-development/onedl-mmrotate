@@ -8,7 +8,16 @@ import pycocotools.mask as maskUtils
 import tempfile
 from collections import OrderedDict
 from faster_coco_eval import COCOeval_faster
-from mmcv.ops import box_iou_rotated
+
+try:
+    from mmcv.ops import box_iou_rotated
+except ImportError:  # noqa: E722
+
+    def box_iou_rotated(*args, **kwargs):
+        raise RuntimeError('box_iou_rotated from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.datasets.api_wrappers import COCO
 from mmdet.evaluation import FasterCocoMetric
 from mmengine import MMLogger

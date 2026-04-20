@@ -1,6 +1,15 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
-from mmcv.ops import batched_nms
+
+try:
+    from mmcv.ops import batched_nms
+except ImportError:  # noqa: E722
+
+    def batched_nms(*args, **kwargs):
+        raise RuntimeError('batched_nms from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.models.dense_heads import RPNHead
 from mmdet.structures.bbox import (BaseBoxes, get_box_tensor, get_box_wh,
                                    scale_boxes)

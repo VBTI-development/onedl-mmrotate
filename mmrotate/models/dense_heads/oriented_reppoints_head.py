@@ -4,7 +4,20 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from mmcv.ops import chamfer_distance, min_area_polygons
+
+try:
+    from mmcv.ops import chamfer_distance, min_area_polygons
+except ImportError:  # noqa: E722
+
+    def chamfer_distance(*args, **kwargs):
+        raise RuntimeError('chamfer_distance from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+    def min_area_polygons(*args, **kwargs):
+        raise RuntimeError('min_area_polygons from mmcv.ops is not available. '
+                           'Please install onedl-mmcv with ops support.')
+
+
 from mmdet.models.utils import images_to_levels, multi_apply, unmap
 from mmdet.utils import ConfigType, InstanceList, OptInstanceList
 from mmengine.structures import InstanceData

@@ -1,6 +1,29 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
-from mmcv.ops import DeformConv2d, DeformConv2dPack, rotated_feature_align
+
+try:
+    from mmcv.ops import DeformConv2d, DeformConv2dPack, rotated_feature_align
+except ImportError:  # noqa: E722
+
+    class DeformConv2d:
+
+        def __init__(self, *args, **kwargs):
+            raise RuntimeError('DeformConv2d from mmcv.ops is not available. '
+                               'Please install onedl-mmcv with ops support.')
+
+    class DeformConv2dPack:
+
+        def __init__(self, *args, **kwargs):
+            raise RuntimeError(
+                'DeformConv2dPack from mmcv.ops is not available. '
+                'Please install onedl-mmcv with ops support.')
+
+    def rotated_feature_align(*args, **kwargs):
+        raise RuntimeError(
+            'rotated_feature_align from mmcv.ops is not available. '
+            'Please install onedl-mmcv with ops support.')
+
+
 from mmengine.model import BaseModule, normal_init
 from torch import Tensor, nn
 from typing import List
