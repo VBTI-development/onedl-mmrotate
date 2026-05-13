@@ -1620,7 +1620,7 @@ wheels = [
 
 [[package]]
 name = "onedl-mmcv"
-version = "2.3.4"
+version = "2.3.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "addict" },
@@ -1634,11 +1634,11 @@ dependencies = [
     { name = "regex", marker = "sys_platform == 'win32'" },
     { name = "yapf" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6c/e8/f5fa1180f0e5159213b58ca82fe0a389ee8c2b3754d2968e90cab2fe77c0/onedl_mmcv-2.3.4.tar.gz", hash = "sha256:724095480dec4b1b5b5935d2e26f0af9e8b8c4ae28d3a369c5fb614dbc62c1f0", size = 515585, upload-time = "2026-04-15T13:11:46.83Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f3/75/c41230c08781de8bc3206e244e44c3eab8a4bfaad3878891082067042a7d/onedl_mmcv-2.3.6.tar.gz", hash = "sha256:8704978a3d492b15cc058742ac3165bd1bcc2dd20678da9ed39e0da3048e3045", size = 515592, upload-time = "2026-05-13T11:55:23.23Z" }
 
 [[package]]
 name = "onedl-mmdetection"
-version = "3.4.7"
+version = "3.5.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "imaug" },
@@ -1653,7 +1653,7 @@ dependencies = [
     { name = "terminaltables" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bd/ba/f2221db8a8b393b25c92c078a64447d9be9faa077119efb6bdd1934adfdf/onedl_mmdetection-3.4.7.tar.gz", hash = "sha256:771e12665d3c7abf10edd9e304a344bf9893eb5b287424b3021c53e863e4810c", size = 1338779, upload-time = "2026-03-23T10:37:38.148Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f0/26/f6f608b1e79b17b3b9c2a565746f6191309454330be83c3c139ceec4e091/onedl_mmdetection-3.5.1.tar.gz", hash = "sha256:2cd7fae8f74f644dd7a1f71cebc2cf531c330c6e027ffada46ee3d34ba7642dc", size = 1344063, upload-time = "2026-05-13T12:20:35.142Z" }
 
 [[package]]
 name = "onedl-mmengine"
@@ -1674,7 +1674,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/d0/10/fe8ec5c3cfbcba3b4
 
 [[package]]
 name = "onedl-mmrotate"
-version = "1.2.0"
+version = "1.2.1"
 source = { editable = "." }
 dependencies = [
     { name = "faster-coco-eval" },
